@@ -1,10 +1,11 @@
+[![Build Status](https://travis-ci.org/wodby/drupal.svg?branch=master)](https://travis-ci.org/wodby/drupal)
+
 # Supported tags and respective `Dockerfile` links
 
 ## Drupal 8
 
 ### Nginx
 
-[![Build Status](https://travis-ci.org/wodby/drupal8-nginx.svg?branch=master)](https://travis-ci.org/wodby/drupal8-nginx)
 [![Docker Pulls](https://img.shields.io/docker/pulls/wodby/drupal8-nginx.svg)](https://hub.docker.com/r/wodby/drupal8-nginx)
 [![Docker Stars](https://img.shields.io/docker/stars/wodby/drupal8-nginx.svg)](https://hub.docker.com/r/wodby/drupal8-nginx)
 
@@ -14,7 +15,6 @@
 
 ### Nginx
 
-[![Build Status](https://travis-ci.org/wodby/drupal7-nginx.svg?branch=master)](https://travis-ci.org/wodby/drupal7-nginx)
 [![Docker Pulls](https://img.shields.io/docker/pulls/wodby/drupal7-nginx.svg)](https://hub.docker.com/r/wodby/drupal7-nginx)
 [![Docker Stars](https://img.shields.io/docker/stars/wodby/drupal7-nginx.svg)](https://hub.docker.com/r/wodby/drupal7-nginx)
 
