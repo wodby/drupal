@@ -1,10 +1,10 @@
 -include env_make
 
 NS = wodby
-VERSION ?= 7
+VERSION ?= latest
 
-REPO = drupal
-NAME = drupal
+REPO = drupal7-nginx
+NAME = drupal7-nginx
 
 .PHONY: build test push shell run start stop logs rm release
 

@@ -5,11 +5,11 @@ services:
 
 env:
   matrix:
-    - VERSION=8
-    - VERSION=7
+    - DRUPAL=8 SERVICE=nginx
+    - DRUPAL=7 SERVICE=nginx
 
 install:
-  - cd ./$VERSION
+  - cd ./$DRUPAL/$SERVICE
   - make
 
 script: make test
@@ -20,7 +20,7 @@ after_success: |
     make release
 
     if [ -n "$TRAVIS_TAG" ]; then
-      make VERSION="$VERSION-$TRAVIS_TAG" release
+      make VERSION="$TRAVIS_TAG" release
     fi
 
     if [ "$VERSION" == "8" ]; then

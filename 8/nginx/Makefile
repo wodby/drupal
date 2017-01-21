@@ -1,10 +1,10 @@
 -include env_make
 
 NS = wodby
-VERSION ?= 8
+VERSION ?= latest
 
-REPO = drupal
-NAME = drupal
+REPO = drupal8-nginx
+NAME = drupal8-nginx
 
 .PHONY: build test push shell run start stop logs rm release
 
