@@ -79,19 +79,12 @@ server {
             access_log off;
             expires 30d;
             tcp_nodelay off;
-            open_file_cache max=3000 inactive=120s;
+            open_file_cache {{ getenv "NGINX_STATIC_CONTENT_OPEN_FILE_CACHE" "max=3000 inactive=120s" }};
             open_file_cache_valid 45s;
             open_file_cache_min_uses 2;
             open_file_cache_errors off;
         }
 
-        location ~* ^.+\.(?:css|js)$ {
-            access_log off;
-            expires 30d;
-            tcp_nodelay off;
-            open_file_cache off;
-        }
-        
         location ~* ^.+\.(?:pdf|pptx?)$ {
             expires 30d;
             tcp_nodelay off;
