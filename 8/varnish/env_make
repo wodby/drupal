@@ -1,0 +1,3 @@
+ENV = \
+    -e VARNISH_BACKEND_HOST=localhost \
+    -e VARNISH_BACKEND_PORT=80

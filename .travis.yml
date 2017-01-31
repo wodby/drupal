@@ -4,13 +4,25 @@ services:
   - docker
 
 env:
+  global:
+    - LATEST_VERSION=8
   matrix:
     - DRUPAL=8 SERVICE=nginx
+    - DRUPAL=8 SERVICE=varnish
+#    - DRUPAL=8 SERVICE=php-7.0
     - DRUPAL=7 SERVICE=nginx
+#    - DRUPAL=7 SERVICE=php-7.0
+#    - DRUPAL=7 SERVICE=php-5.6
 
 install:
   - cd ./$DRUPAL/$SERVICE
   - make
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
 
 script: make test
 
@@ -23,12 +35,13 @@ after_success: |
       make VERSION="$TRAVIS_TAG" release
     fi
 
-    if [ "$VERSION" == "8" ]; then
+    if [ "$VERSION" == "$LATEST_VERSION" ]; then
       make VERSION=latest release
     fi
   fi
 
 after_failure:
+  - docker-compose -f test/docker-compose.yml
   - make logs
 
 notifications:
