@@ -11,6 +11,13 @@
 
 -       [`8`, `latest` (*8/nginx/Dockerfile*)](https://github.com/wodby/drupal/tree/master/8/nginx/Dockerfile)
 
+### Varnish
+
+[![Docker Pulls](https://img.shields.io/docker/pulls/wodby/drupal8-varnish.svg)](https://hub.docker.com/r/wodby/drupal8-varnish)
+[![Docker Stars](https://img.shields.io/docker/stars/wodby/drupal8-varnish.svg)](https://hub.docker.com/r/wodby/drupal8-varnish)
+
+-       [`8`, `latest` (*8/nginx/Dockerfile*)](https://github.com/wodby/drupal/tree/master/8/varnish/Dockerfile)
+
 ## Drupal 7
 
 ### Nginx
