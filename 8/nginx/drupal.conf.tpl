@@ -2,7 +2,7 @@ server {
     server_name {{ getenv "NGINX_SERVER_NAME" "drupal" }};
     listen 80;
 
-    root /var/www/html/;
+    root {{ getenv "NGINX_SERVER_ROOT" "/var/www/html/" }};
     index index.php;
 
     fastcgi_keep_conn on;
