@@ -74,6 +74,7 @@ sub vcl_recv {
         req.url ~ "^/update\.php$" ||
         req.url ~ "^/admin$" ||
         req.url ~ "^/admin/.*$" ||
+        req.url ~ "^/system/files/.*$" ||
         req.url ~ "^/flag/.*$" ||
         req.url ~ "^.*/ajax/.*$" ||
         req.url ~ "^.*/ahah/.*$") {
