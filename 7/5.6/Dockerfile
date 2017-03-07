@@ -1,4 +1,4 @@
-FROM wodby/drupal-php:7.0
+FROM wodby/drupal-php:5.6
 
 COPY composer.json /var/www/html
 
