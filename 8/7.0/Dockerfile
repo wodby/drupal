@@ -1,4 +1,4 @@
-FROM wodby/drupal-php:7.0-2.0.0
+FROM wodby/drupal-php:7.0
 
 COPY drupal-composer /var/www/html
 
