@@ -13,17 +13,13 @@ if ! [ -e web/index.php ]; then
 
     if [[ -z "${DRUPAL_VERSION}" ]]; then
         settings=$(cat <<'END_HEREDOC'
-
-$databases['default']['default'] = array_merge(
-  $databases['default']['default'],
-  [
+$databases['default']['default'] = [
     'host' => 'mariadb',
     'database' => 'drupal',
     'username' => 'drupal',
     'password' => 'drupal',
     'driver' => 'mysql',
-  ]
-);
+];
 END_HEREDOC
 )
 
