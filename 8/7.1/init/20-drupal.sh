@@ -12,6 +12,9 @@ if ! [ -e web/index.php ]; then
     echo >&2 "Complete! Drupal has been successfully copied to ${APP_ROOT}"
 
     if [[ -z "${DRUPAL_VERSION}" ]]; then
+        mkdir -p /var/www/files/config/sync_dir
+        chown www-data:www-data /var/www/files/config/sync_dir
+
         settings=$(cat <<'END_HEREDOC'
 $databases['default']['default'] = [
     'host' => getenv('DB_HOST'),
@@ -20,6 +23,9 @@ $databases['default']['default'] = [
     'password' => getenv('DB_PASSWORD'),
     'driver' => getenv('DB_DRIVER'),
 ];
+
+$config_directories['sync'] = '/var/www/files/config/sync_dir';
+$settings['trusted_host_patterns'][] = 'drupal\.docker\.localhost';
 END_HEREDOC
 )
 

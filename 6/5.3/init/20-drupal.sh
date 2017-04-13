@@ -13,6 +13,8 @@ if ! [ -e index.php ]; then
 
     if [[ -z "${DRUPAL_VERSION}" ]]; then
         settings=$(cat <<'END_HEREDOC'
+<?php
+
 $db_settings = array(
   'host' => getenv('DB_HOST'),
   'database' => getenv('DB_NAME'),
@@ -25,6 +27,7 @@ $db_url = strtr('driver://username:password@host/database', $db_settings);
 END_HEREDOC
 )
 
-        echo "${settings}" >> "${APP_ROOT}/sites/default/settings.php"
+        echo "${settings}" > "${APP_ROOT}/sites/default/settings.php"
+        chown www-data:www-data "${APP_ROOT}/sites/default/settings.php"
     fi
 fi

@@ -13,16 +13,19 @@ if ! [ -e web/index.php ]; then
 
     if [[ -z "${DRUPAL_VERSION}" ]]; then
         settings=$(cat <<'END_HEREDOC'
-$databases['default']['default'] = [
+<?php
+
+$databases['default']['default'] = array(
     'host' => getenv('DB_HOST'),
     'database' => getenv('DB_NAME'),
     'username' => getenv('DB_USERNAME'),
     'password' => getenv('DB_PASSWORD'),
     'driver' => getenv('DB_DRIVER'),
-];
+);
 END_HEREDOC
 )
 
-        echo "${settings}" >> "${APP_ROOT}/web/sites/default/settings.php"
+        echo "${settings}" > "${APP_ROOT}/web/sites/default/settings.php"
+        chown www-data:www-data "${APP_ROOT}/web/sites/default/settings.php"
     fi
 fi
