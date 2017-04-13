@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 
-set -ex
+set -e
+
+if [[ ! -z "${DEBUG}" ]]; then
+    set -x
+fi
 
 make start
 
-docker exec --user=82 $NAME drush -r /var/www/html/web status | grep 'Drupal version *: *7\.'
+echo "Wait for Drupal to be copied"
+sleep 3
+echo -n "Checking Drupal version... "
+docker exec --user=82 "${NAME}" drush -r /var/www/html/web status | grep -q 'Drupal version *: *7\.'
+echo "OK"
+
 make clean
