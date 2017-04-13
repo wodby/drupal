@@ -1,9 +1,10 @@
 FROM wodby/drupal-php:5.3
 
-RUN mkdir /usr/src/drupal && \
-    chown -R www-data:www-data /var/www/html/ /usr/src/drupal
+COPY make.yml /usr/src/drupal/
 
-COPY make.yml /usr/src/drupal
+RUN cd /usr/src/drupal && \
+    chown www-data:www-data /usr/src/drupal && \
+    su-exec www-data drush make make.yml -y && \
+    rm make.yml
+
 COPY init /docker-entrypoint-init.d/
-
-RUN cd /usr/src/drupal && su-exec www-data drush make make.yml -y
