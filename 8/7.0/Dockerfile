@@ -6,4 +6,4 @@ RUN mkdir /usr/src/drupal && \
         --stability dev --no-interaction && \
     su-exec www-data composer clear-cache
 
-COPY drupal.sh /docker-entrypoint-init.d/
+COPY init /docker-entrypoint-init.d/
