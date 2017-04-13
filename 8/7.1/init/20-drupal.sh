@@ -7,18 +7,18 @@ if [[ ! -z "${DEBUG}" ]]; then
 fi
 
 if ! [ -e web/index.php ]; then
-    echo >&2 "Drupal not found in ${PWD} - copying now..."
-    su-exec www-data rsync -rlt --delete --force "/usr/src/drupal/" "${PWD}/"
-    echo >&2 "Complete! Drupal has been successfully copied to ${PWD}"
+    echo >&2 "Drupal not found in ${APP_ROOT} - copying now..."
+    su-exec www-data rsync -rlt --delete --force "/usr/src/drupal/" "${APP_ROOT}/"
+    echo >&2 "Complete! Drupal has been successfully copied to ${APP_ROOT}"
 
     if [[ -z "${DRUPAL_VERSION}" ]]; then
         settings=$(cat <<'END_HEREDOC'
 $databases['default']['default'] = [
-    'host' => 'mariadb',
-    'database' => 'drupal',
-    'username' => 'drupal',
-    'password' => 'drupal',
-    'driver' => 'mysql',
+    'host' => getenv('DB_HOST'),
+    'database' => getenv('DB_NAME'),
+    'username' => getenv('DB_USERNAME'),
+    'password' => getenv('DB_PASSWORD'),
+    'driver' => getenv('DB_DRIVER'),
 ];
 END_HEREDOC
 )
