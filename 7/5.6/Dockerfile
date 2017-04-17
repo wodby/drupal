@@ -1,4 +1,4 @@
-FROM wodby/drupal-php:5.6
+FROM wodby/drupal-php:5.6-2.1.0
 
 RUN mkdir /usr/src/drupal && \
     chown www-data:www-data /usr/src/drupal && \
