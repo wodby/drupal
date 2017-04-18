@@ -1,5 +1,7 @@
-#production.make.yml:
 api: 2
 core: 6.x
 projects:
-  - drupal
+  drupal:
+    version: 6.38
+  memcache:
+    version: 1.11
