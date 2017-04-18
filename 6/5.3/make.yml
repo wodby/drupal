@@ -3,5 +3,3 @@ core: 6.x
 projects:
   drupal:
     version: 6.38
-  memcache:
-    version: 1.11
