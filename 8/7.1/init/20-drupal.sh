@@ -2,11 +2,11 @@
 
 set -e
 
-if [[ ! -z "${DEBUG}" ]]; then
+if [[ -n "${DEBUG}" ]]; then
     set -x
 fi
 
-if ! [ -e web/index.php ]; then
+if ! [ -e "${APP_ROOT}/web/index.php" ]; then
     echo >&2 "Drupal not found in ${APP_ROOT} - copying now..."
     chown -R www-data:www-data "${APP_ROOT}"
     rsync -roglt "/usr/src/drupal/" "${APP_ROOT}/"
@@ -25,7 +25,6 @@ $databases['default']['default'] = [
 ];
 
 $config_directories['sync'] = '/var/www/files/config/sync_dir';
-$settings['trusted_host_patterns'][] = 'drupal\.docker\.localhost';
 END_HEREDOC
 )
 
