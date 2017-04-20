@@ -11,7 +11,7 @@ make start
 echo "Wait for Drupal to be copied"
 sleep 3
 echo -n "Checking Drupal version... "
-docker exec --user=82 "${NAME}" drush -r "${APP_ROOT}/web" status | grep -q 'Drupal version *: *7\.'
+docker exec --user=82 "${NAME}" drush -r "/var/www/html/web" status | grep -q 'Drupal version *: *7\.'
 echo "OK"
 
 make clean
