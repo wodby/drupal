@@ -11,6 +11,7 @@ if ! [ -e "${APP_ROOT}/web/index.php" ]; then
     chown -R www-data:www-data "${APP_ROOT}"
     su-exec www-data mkdir -p web
     rsync -roglt "/usr/src/drupal/" "${APP_ROOT}/web"
+    touch "${APP_ROOT}/.ready"
     echo >&2 "Complete! Drupal has been successfully copied to ${APP_ROOT}"
 
     if [[ -z "${DRUPAL_VERSION}" ]]; then
