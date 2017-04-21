@@ -13,7 +13,6 @@ wait_seconds=$2
 for i in $(seq 1 "${max_try}"); do
     if [[ -f "${APP_ROOT}/.ready" ]]; then
         ready=1
-        rm "${APP_ROOT}/.ready"
         break
     fi
     echo 'Drupal is copying...'

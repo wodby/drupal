@@ -2,7 +2,7 @@
 
 .PHONY: check-ready
 
-max_try ?= 10
+max_try ?= 1
 wait_seconds ?= 1
 
 check-ready:
