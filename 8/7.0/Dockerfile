@@ -1,4 +1,4 @@
-FROM wodby/drupal-php:7.0
+FROM wodby/drupal-php:7.0-2.1.0
 
 RUN mv /usr/local/bin/actions.mk /usr/local/bin/drupal-php.mk && \
     mkdir /usr/src/drupal && \
