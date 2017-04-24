@@ -9,4 +9,6 @@ RUN mv /usr/local/bin/actions.mk /usr/local/bin/drupal-php.mk && \
     su-exec www-data drush @none dl registry_rebuild-7.x && \
     rm make.yml
 
+COPY init /docker-entrypoint-init.d/
+
 COPY actions /usr/local/bin/

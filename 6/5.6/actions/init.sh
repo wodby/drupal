@@ -13,6 +13,6 @@ if ! [ -e "${APP_ROOT}/web/index.php" ]; then
 
     if [[ -z "${DRUPAL_VERSION}" ]]; then
         cd "${APP_ROOT}/web/sites/default"
-        su-exec www-data cp "default.settings.php" "settings.php"
+        cp "default.settings.php" "settings.php"
     fi
 fi

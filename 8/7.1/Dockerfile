@@ -7,4 +7,6 @@ RUN mv /usr/local/bin/actions.mk /usr/local/bin/drupal-php.mk && \
         --stability dev --no-interaction && \
     su-exec www-data composer clear-cache
 
+COPY init /docker-entrypoint-init.d/
+
 COPY actions /usr/local/bin/
