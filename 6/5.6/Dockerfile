@@ -1,4 +1,4 @@
-FROM wodby/drupal-php:5.6
+FROM wodby/drupal-php:5.6-2.4.0
 
 COPY make.yml /usr/src/drupal/
 
