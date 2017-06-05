@@ -1,4 +1,4 @@
-# PHP docker container image with vanilla Drupal inside
+# Vanilla Drupal docker container image
 
 [![Build Status](https://travis-ci.org/wodby/drupal.svg?branch=master)](https://travis-ci.org/wodby/drupal)
 [![Docker Pulls](https://img.shields.io/docker/pulls/wodby/drupal.svg)](https://hub.docker.com/r/wodby/drupal)
@@ -19,17 +19,6 @@
 
 See at [wodby/drupal-php](https://github.com/wodby/drupal-php)
 
-## Actions
+## Complete Drupal stack
 
-Usage:
-
-```
-make COMMAND [params ...]
- 
-commands:
-    init
-```
-
-## Using in production
-
-Deploy docker-based infrastructure for Drupal to your own server via [![Wodby](https://www.google.com/s2/favicons?domain=wodby.com) Wodby](https://wodby.com).
+To get full docker-based Drupal stack see [Docker4Drupal](https://github.com/wodby/docker4drupal).
