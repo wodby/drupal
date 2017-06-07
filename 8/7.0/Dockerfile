@@ -1,5 +1,8 @@
 FROM wodby/drupal-php:7.0
 
+ENV DRUPAL_ROOT "${APP_ROOT}/web"
+ENV APP_NAME "Drupal 8"
+
 RUN mv /usr/local/bin/actions.mk /usr/local/bin/drupal-php.mk && \
     mkdir /usr/src/drupal && \
     chown www-data:www-data /usr/src/drupal && \
