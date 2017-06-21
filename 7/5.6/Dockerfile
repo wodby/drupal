@@ -16,10 +16,11 @@ RUN set -xe && \
     # Apply patch to rederect to install.php when $databases defined.
     apk add --update jq && \
     cd /usr/src/drupal && \
-    jq --indent 4 '.extra.patches."drupal/drupal"."Redirect to install.php"="'${PATCH_URL}'"' composer.json > tmp.json && \
-    mv tmp.json /usr/src/drupal/composer.json && \
-    apk del --purge jq && \
     su-exec www-data composer require cweagans/composer-patches && \
+    jq --indent 4 '.extra.patches."drupal/drupal"."Redirect to install.php"="'${PATCH_URL}'"' composer.json > tmp.json && \
+    mv tmp.json composer.json && \
+    chown www-data:www-data composer.json && \
+    apk del --purge jq && \
     su-exec www-data composer update -d /usr/src/drupal && \
 
     su-exec www-data composer clear-cache
