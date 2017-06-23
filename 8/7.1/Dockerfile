@@ -1,4 +1,4 @@
-FROM wodby/drupal-php:7.1-2.4.1
+FROM wodby/drupal-php:7.1-2.4.2
 
 ENV DRUPAL_ROOT "${APP_ROOT}/web"
 ENV APP_NAME "Drupal 8"
