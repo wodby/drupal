@@ -1,6 +1,6 @@
 FROM wodby/drupal-php:7.0
 
-ENV DRUPAL_ROOT "${APP_ROOT}/web"
+ENV DOCROOT_SUBDIR "web"
 ENV APP_NAME "Drupal 8"
 
 RUN mv /usr/local/bin/actions.mk /usr/local/bin/drupal-php.mk && \

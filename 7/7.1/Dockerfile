@@ -1,6 +1,6 @@
 FROM wodby/drupal-php:7.1
 
-ENV DRUPAL_ROOT "${APP_ROOT}/web"
+ENV DOCROOT_SUBDIR "web"
 ENV APP_NAME "Drupal 7"
 
 ENV PATCH_URL https://gist.githubusercontent.com/csandanov/72d6e5d9bfd857491a87fa9131e5728c/raw/bff270bea6f5a05779a4fcd5a570dc3e36bb25ca/drupal-7-install-php-redirect.patch

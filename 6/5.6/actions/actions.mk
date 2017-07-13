@@ -3,4 +3,4 @@
 .PHONY: init
 
 init:
-	init.sh
+	DRUPAL_ROOT=$(DRUPAL_ROOT) init.sh
