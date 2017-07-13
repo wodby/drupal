@@ -24,6 +24,11 @@ $databases['default']['default'] = [
 ];
 
 $config_directories['sync'] = '/var/www/files/config/sync_dir';
+$settings['trusted_host_patterns'] = array(
+    '\.localhost$',
+    '\.local$',
+    '\.loc$',
+);
 END_HEREDOC
 )
 
