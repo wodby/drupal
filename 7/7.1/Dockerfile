@@ -1,9 +1,8 @@
 FROM wodby/drupal-php:7.1
 
-ENV DOCROOT_SUBDIR "web"
-ENV APP_NAME "Drupal 7"
-
-ENV PATCH_URL https://gist.githubusercontent.com/csandanov/72d6e5d9bfd857491a87fa9131e5728c/raw/bff270bea6f5a05779a4fcd5a570dc3e36bb25ca/drupal-7-install-php-redirect.patch
+ENV DOCROOT_SUBDIR="web" \
+    APP_NAME="Drupal 7" \
+    PATCH_URL="https://gist.githubusercontent.com/csandanov/72d6e5d9bfd857491a87fa9131e5728c/raw/bff270bea6f5a05779a4fcd5a570dc3e36bb25ca/drupal-7-install-php-redirect.patch"
 
 RUN set -xe && \
     mv /usr/local/bin/actions.mk /usr/local/bin/drupal-php.mk && \
