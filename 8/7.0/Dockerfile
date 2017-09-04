@@ -1,4 +1,4 @@
-FROM wodby/drupal-php:7.0-2.4.7
+FROM wodby/drupal-php:7.0-2.4.8
 
 ENV DOCROOT_SUBDIR="web" \
     APP_NAME="Drupal 8"
