@@ -6,6 +6,6 @@ if [[ -n "${DEBUG}" ]]; then
     set -x
 fi
 
-if [[ -z "${DRUPAL_VERSION}" ]]; then
+if [[ -z "${WODBY_APP_NAME}" ]]; then
     su-exec www-data make init -f /usr/local/bin/actions.mk
 fi

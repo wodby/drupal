@@ -11,7 +11,7 @@ if ! [ -e "${APP_ROOT}/web/index.php" ]; then
     rsync -rlt "/usr/src/drupal/" "${APP_ROOT}/web"
     echo >&2 "Complete! Drupal has been successfully copied to ${APP_ROOT}"
 
-    if [[ -z "${DRUPAL_VERSION}" ]]; then
+    if [[ -z "${WODBY_APP_NAME}" ]]; then
         cd "${APP_ROOT}/web/sites/default"
         cp "default.settings.php" "settings.php"
     fi

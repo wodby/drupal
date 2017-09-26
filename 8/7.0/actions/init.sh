@@ -11,7 +11,7 @@ if ! [ -e "${DRUPAL_ROOT}/index.php" ]; then
     rsync -rlt "/usr/src/drupal/" "${APP_ROOT}/"
     echo >&2 "Complete! ${APP_NAME} has been successfully copied to ${APP_ROOT}"
 
-    if [[ -z "${DRUPAL_VERSION}" ]]; then
+    if [[ -z "${WODBY_APP_NAME}" ]]; then
         mkdir -p /var/www/files/config/sync_dir
 
         settings=$(cat <<'END_HEREDOC'
