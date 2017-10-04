@@ -1,14 +1,27 @@
 -include env_make
 
-TAG ?= 6-5.6
+DRUPAL = 7
+PHP_VER ?= 5.6
+TAG ?= $(DRUPAL)-$(PHP_VER)
 
 REPO = wodby/drupal
-NAME = drupal-$(TAG)
+NAME = drupal-$(DRUPAL)-$(PHP_VER)
+
+PHP_DEBUG = 0
+FROM_TAG = $(PHP_VER)
+
+ifeq ($(PHP_DEBUG), 1)
+    override TAG := $(TAG)-debug
+    FROM_TAG := $(FROM_TAG)-debug
+    NAME := $(NAME)-debug
+endif
 
 .PHONY: build test push shell run start stop logs clean release
 
+default: build
+
 build:
-	docker build -t $(REPO):$(TAG) ./
+	docker build -t $(REPO):$(TAG) --build-arg FROM_TAG=$(FROM_TAG) ./
 
 test:
 	IMAGE=$(REPO):$(TAG) ./test.sh
@@ -34,7 +47,4 @@ logs:
 clean:
 	-docker rm -f $(NAME)
 
-release: build
-	make push -e TAG=$(TAG)
-
-default: build
+release: build push

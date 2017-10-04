@@ -1,4 +1,6 @@
-FROM wodby/drupal-php:7.0
+ARG FROM_TAG
+
+FROM wodby/drupal-php:${FROM_TAG}
 
 ENV DOCROOT_SUBDIR="web" \
     APP_NAME="Drupal 7" \

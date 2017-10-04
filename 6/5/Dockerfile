@@ -1,4 +1,6 @@
-FROM wodby/drupal-php:5.3
+ARG FROM_TAG
+
+FROM wodby/drupal-php:${FROM_TAG}
 
 COPY make.yml /usr/src/drupal/
 
