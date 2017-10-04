@@ -1,13 +1,13 @@
 -include env_make
 
 DRUPAL = 8
+
 PHP_VER ?= 7.1
 TAG ?= $(DRUPAL)-$(PHP_VER)
+PHP_DEBUG ?= 0
 
 REPO = wodby/drupal
 NAME = drupal-$(DRUPAL)-$(PHP_VER)
-
-PHP_DEBUG = 0
 FROM_TAG = $(PHP_VER)
 
 ifeq ($(PHP_DEBUG), 1)
