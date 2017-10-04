@@ -7,7 +7,7 @@ services:
 
 env:
   global:
-    - REPO=wodby/drupal-php
+    - DOCKER_VERSION=17.06.2
     - LATEST_DRUPAL=8
     - LATEST_PHP_VER=7.1
   matrix:
@@ -24,6 +24,10 @@ env:
     - DRUPAL=7 PHP_VER=7.0 PHP_DEBUG=1
     - DRUPAL=7 PHP_VER=5.6 PHP_DEBUG=1
     - DRUPAL=6 PHP_VER=5.6 PHP_DEBUG=1
+
+install:
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce="${DOCKER_VERSION}~ce-0~ubuntu"
 
 script:
   - cd ./$DRUPAL/"${PHP_VER:0:1}"
