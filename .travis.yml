@@ -29,10 +29,10 @@ after_success: |
     make release
 
     if [ -n "$TRAVIS_TAG" ]; then
-      make VERSION="$DRUPAL-$PHP-$TRAVIS_TAG" release
+      make TAG="$DRUPAL-$PHP-$TRAVIS_TAG" release
     fi
 
     if [ "$DRUPAL" == "$LATEST_DRUPAL" && "$PHP" == "$LATEST_PHP" ]; then
-      make VERSION=latest release
+      make TAG=latest release
     fi
   fi

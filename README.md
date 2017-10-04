@@ -11,15 +11,15 @@ Images are based on [wodby/drupal-php](https://github.com/wodby/drupal-php), bui
 
 ## Versions
 
-| Tag | Drupal | PHP | Alpine Linux |
-| --- | ------ | --- | ------------ |
-| [8-7.1](https://github.com/wodby/drupal/tree/master/8/7.1/Dockerfile) | 8 | 7.1 | 3.6 |  
-| [8-7.0](https://github.com/wodby/drupal/tree/master/8/7.0/Dockerfile) | 8 | 7.0 | 3.6 |  
-| [7-7.1](https://github.com/wodby/drupal/tree/master/7/7.1/Dockerfile) | 7 | 7.1 | 3.6 |  
-| [7-7.0](https://github.com/wodby/drupal/tree/master/7/7.0/Dockerfile) | 7 | 7.0 | 3.6 |  
-| [7-5.6](https://github.com/wodby/drupal/tree/master/7/5.6/Dockerfile) | 7 | 5.6 | 3.6 |  
-| [6-5.6](https://github.com/wodby/drupal/tree/master/6/5.6/Dockerfile) | 6 | 5.6 | 3.6 |  
-| [6-5.3](https://github.com/wodby/drupal/tree/master/6/5.3/Dockerfile) | 6 | 5.3 | 3.4 |  
+| Image Tag (Dockerfile)                                                | Drupal | PHP | Alpine Linux |
+| --------------------------------------------------------------------- | ------ | --- | ------------ |
+| [8-7.1](https://github.com/wodby/drupal/tree/master/8/7.1/Dockerfile) | 8      | 7.1 | 3.6          |
+| [8-7.0](https://github.com/wodby/drupal/tree/master/8/7.0/Dockerfile) | 8      | 7.0 | 3.6          |
+| [7-7.1](https://github.com/wodby/drupal/tree/master/7/7.1/Dockerfile) | 7      | 7.1 | 3.6          |
+| [7-7.0](https://github.com/wodby/drupal/tree/master/7/7.0/Dockerfile) | 7      | 7.0 | 3.6          |
+| [7-5.6](https://github.com/wodby/drupal/tree/master/7/5.6/Dockerfile) | 7      | 5.6 | 3.6          |
+| [6-5.6](https://github.com/wodby/drupal/tree/master/6/5.6/Dockerfile) | 6      | 5.6 | 3.6          |
+| [6-5.3](https://github.com/wodby/drupal/tree/master/6/5.3/Dockerfile) | 6      | 5.3 | 3.4          |
 
 ## Environment Variables
 

@@ -7,11 +7,11 @@ if [[ -n "${DEBUG}" ]]; then
 fi
 
 cid="$(
-	docker run -d -e DRUPAL_VERSION=6 --name "${NAME}" "${IMAGE}"
+	docker run -d -e DRUPAL_VERSION=6 "${IMAGE}"
 )"
 trap "docker rm -vf ${cid} > /dev/null" EXIT
 
-docker exec "${NAME}" make init -f /usr/local/bin/actions.mk
+docker exec "${cid}" make init -f /usr/local/bin/actions.mk
 echo -n "Checking Drupal version... "
-docker exec "${NAME}" drush -r "/var/www/html/web" status | grep -q 'Drupal version *: *6\.38'
+docker exec "${cid}" drush -r "/var/www/html/web" status | grep -q 'Drupal version *: *6\.38'
 echo "OK"

@@ -12,7 +12,7 @@ if [[ ! -e "${APP_ROOT}/web/index.php" ]]; then
     echo >&2 "Complete! Drupal has been successfully copied to ${APP_ROOT}"
 
     if [[ -z "${WODBY_APP_NAME}" ]]; then
-        cd "${APP_ROOT}/web/sites/default"
-        cp "default.settings.php" "settings.php"
+        path="${APP_ROOT}/web/sites/default/"
+        cp "${path}/default.settings.php" "${path}/settings.php"
     fi
 fi

@@ -1,29 +1,29 @@
 -include env_make
 
-VERSION ?= 8-7.0
+TAG ?= 8-7.0
 
 REPO = wodby/drupal
-NAME = drupal-$(VERSION)
+NAME = drupal-$(TAG)
 
 .PHONY: build test push shell run start stop logs clean release
 
 build:
-	docker build -t $(REPO):$(VERSION) ./
+	docker build -t $(REPO):$(TAG) ./
 
 test:
-	NAME=$(NAME) IMAGE=$(REPO):$(VERSION) ./test.sh
+	IMAGE=$(REPO):$(TAG) ./test.sh
 
 push:
-	docker push $(REPO):$(VERSION)
+	docker push $(REPO):$(TAG)
 
 shell:
-	docker run --rm --name $(NAME) -i -t $(PORTS) $(VOLUMES) $(ENV) $(REPO):$(VERSION) /bin/bash
+	docker run --rm --name $(NAME) -i -t $(PORTS) $(VOLUMES) $(ENV) $(REPO):$(TAG) /bin/bash
 
 run:
-	docker run --rm --name $(NAME) $(PORTS) $(VOLUMES) $(ENV) $(REPO):$(VERSION) $(CMD)
+	docker run --rm --name $(NAME) $(PORTS) $(VOLUMES) $(ENV) $(REPO):$(TAG) $(CMD)
 
 start:
-	docker run -d --name $(NAME) $(PORTS) $(VOLUMES) $(ENV) $(REPO):$(VERSION)
+	docker run -d --name $(NAME) $(PORTS) $(VOLUMES) $(ENV) $(REPO):$(TAG)
 
 stop:
 	docker stop $(NAME)
@@ -35,6 +35,6 @@ clean:
 	-docker rm -f $(NAME)
 
 release: build
-	make push -e VERSION=$(VERSION)
+	make push -e TAG=$(TAG)
 
 default: build
