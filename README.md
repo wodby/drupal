@@ -30,6 +30,10 @@ For better reliability we release images with stability tags (`wodby/drupal:8-7.
 | [7-5.6-debug](https://github.com/wodby/drupal/tree/master/7/5/Dockerfile) | 7      | 5.6 |
 | [6-5.6-debug](https://github.com/wodby/drupal/tree/master/6/5/Dockerfile) | 6      | 5.6 |
 
+> Images with -debug tag run php compiled with --enable-debug flag  
+
+> The 5.3 version is no longer supported by PHP team, we highly encourage switching to 5.6 
+
 ## Environment Variables
 
 See [wodby/drupal-php](https://github.com/wodby/drupal-php)
