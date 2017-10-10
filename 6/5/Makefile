@@ -10,6 +10,10 @@ REPO = wodby/drupal
 NAME = drupal-$(DRUPAL)-$(PHP_VER)
 FROM_TAG = $(PHP_VER)
 
+ifneq ($(FROM_STABILITY_TAG),)
+    FROM_TAG := $(FROM_TAG)-$(FROM_STABILITY_TAG)
+endif
+
 ifeq ($(PHP_DEBUG), 1)
     override TAG := $(TAG)-debug
     FROM_TAG := $(FROM_TAG)-debug
