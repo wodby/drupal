@@ -1,20 +1,20 @@
 -include env_make
 
-DRUPAL = 8
+DRUPAL_VER = 8
 
 PHP_VER ?= 7.1
-TAG ?= $(DRUPAL)-$(PHP_VER)
+TAG ?= $(DRUPAL_VER)-$(PHP_VER)
 PHP_DEBUG ?= 0
 
 REPO = wodby/drupal
-NAME = drupal-$(DRUPAL)-$(PHP_VER)
+NAME = drupal-$(DRUPAL_VER)-$(PHP_VER)
 FROM_TAG = $(PHP_VER)
 
 ifneq ($(FROM_STABILITY_TAG),)
     FROM_TAG := $(FROM_TAG)-$(FROM_STABILITY_TAG)
 endif
 
-ifeq ($(PHP_DEBUG), 1)
+ifneq ($(PHP_DEBUG), 0)
     override TAG := $(TAG)-debug
     FROM_TAG := $(FROM_TAG)-debug
     NAME := $(NAME)-debug
