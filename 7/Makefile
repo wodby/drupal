@@ -1,23 +1,33 @@
 -include env_make
 
-DRUPAL = 7
-
+DRUPAL_VER = 7
 PHP_VER ?= 7.1
-TAG ?= $(DRUPAL)-$(PHP_VER)
-PHP_DEBUG ?= 0
 
-REPO = wodby/drupal
-NAME = drupal-$(DRUPAL)-$(PHP_VER)
 FROM_TAG = $(PHP_VER)
+REPO = wodby/drupal
+NAME = drupal-$(DRUPAL_VER)-$(PHP_VER)
+
+ifeq ($(TAG),)
+    ifeq ($(PHP_DEV),)
+        TAG ?= $(DRUPAL_VER)-$(PHP_VER)
+    else
+        TAG := $(DRUPAL_VER)-$(PHP_VER)-dev
+    endif
+endif
+
+ifneq ($(PHP_DEV),)
+    NAME := $(NAME)-dev
+    FROM_TAG := $(FROM_TAG)-dev
+endif
 
 ifneq ($(FROM_STABILITY_TAG),)
     FROM_TAG := $(FROM_TAG)-$(FROM_STABILITY_TAG)
 endif
 
-ifeq ($(PHP_DEBUG), 1)
-    override TAG := $(TAG)-debug
-    FROM_TAG := $(FROM_TAG)-debug
-    NAME := $(NAME)-debug
+ifneq ($(STABILITY_TAG),)
+    ifneq ($(TAG),latest)
+        override TAG := $(TAG)-$(STABILITY_TAG)
+    endif
 endif
 
 .PHONY: build test push shell run start stop logs clean release
