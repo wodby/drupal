@@ -13,23 +13,23 @@
 * [Travis CI builds](https://travis-ci.org/wodby/drupal) 
 * [Docker Hub](https://hub.docker.com/r/wodby/drupal)
 
-* `8-7.1`, `latest` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/7/Dockerfile)       
-* `8-7.0` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/7/Dockerfile)       
-* `7-7.1` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/7/Dockerfile)       
-* `7-7.0` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/7/Dockerfile)       
-* `7-5.6` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/5/Dockerfile)       
-* `6-5.6` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/6/5/Dockerfile)       
-* `6-5.3` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/6/5/Dockerfile)       
-* `8-7.1-debug` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/7/Dockerfile) 
-* `8-7.0-debug` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/7/Dockerfile) 
-* `7-7.1-debug` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/7/Dockerfile) 
-* `7-7.0-debug` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/7/Dockerfile) 
-* `7-5.6-debug` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/5/Dockerfile) 
-* `6-5.6-debug` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/6/5/Dockerfile) 
+| Supported tags and respective `Dockerfile` links                                             | Drupal | PHP |
+| -------------------------------------------------------------------------------------------- | ------ | --- |
+| `8-7.1`, `latest` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/Dockerfile) | 8      | 7.1 |
+| `8-7.0` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/Dockerfile)           | 8      | 7.0 |
+| `7-7.1` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)           | 7      | 7.1 |
+| `7-7.0` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)           | 7      | 7.0 |
+| `7-5.6` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)           | 7      | 5.6 |
+| `6-5.6` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/6/Dockerfile)           | 6      | 5.6 |
+| `8-7.1-dev` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/Dockerfile)       | 8      | 7.1 |
+| `8-7.0-dev` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/Dockerfile)       | 8      | 7.0 |
+| `7-7.1-dev` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)       | 7      | 7.1 |
+| `7-7.0-dev` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)       | 7      | 7.0 |
+| `7-5.6-dev` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)       | 7      | 5.6 |
+| `6-5.6-dev` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/6/Dockerfile)       | 6      | 5.6 |
+| `6-5.3` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/6/Dockerfile)           | 6      | 5.3 |
 
-For better reliability we additionally release images with stability tags (`wodby/drupal:8-7.1-X.X.X`) which correspond to [git tags](https://github.com/wodby/drupal/releases). We **strongly recommend** using images only with stability tags. Below listed basic tags:
-
-> Images with -debug tag run php compiled with --enable-debug flag  
+For better reliability we additionally release images with stability tags (`wodby/drupal:8-7.1-X.X.X`) which correspond to [git tags](https://github.com/wodby/drupal/releases). We **strongly recommend** using images only with stability tags. 
 
 > The 5.3 version is no longer supported by PHP team, we highly encourage switching to 5.6 
 

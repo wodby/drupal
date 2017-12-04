@@ -8,16 +8,16 @@ REPO = wodby/drupal
 NAME = drupal-$(DRUPAL_VER)-$(PHP_VER)
 
 ifeq ($(TAG),)
-    ifeq ($(PHP_DEBUG),)
+    ifeq ($(PHP_DEV),)
         TAG ?= $(DRUPAL_VER)-$(PHP_VER)
     else
-        TAG := $(DRUPAL_VER)-$(PHP_VER)-debug
+        TAG := $(DRUPAL_VER)-$(PHP_VER)-dev
     endif
 endif
 
-ifneq ($(PHP_DEBUG),)
-    NAME := $(NAME)-debug
-    FROM_TAG := $(FROM_TAG)-debug
+ifneq ($(PHP_DEV),)
+    NAME := $(NAME)-dev
+    FROM_TAG := $(FROM_TAG)-dev
 endif
 
 ifneq ($(FROM_STABILITY_TAG),)

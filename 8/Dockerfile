@@ -7,12 +7,12 @@ ENV DOCROOT_SUBDIR="web" \
 
 USER root
 
-RUN set -ex && \
-    mv /usr/local/bin/actions.mk /usr/local/bin/drupal-php.mk && \
-    mkdir /usr/src/drupal && \
-    chown www-data:www-data /usr/src/drupal && \
+RUN set -ex; \
+    mv /usr/local/bin/actions.mk /usr/local/bin/drupal-php.mk; \
+    mkdir /usr/src/drupal; \
+    chown www-data:www-data /usr/src/drupal; \
     su-exec www-data composer create-project drupal-composer/drupal-project:8.x-dev /usr/src/drupal \
-        --stability dev --no-interaction && \
+        --stability dev --no-interaction; \
     su-exec www-data composer clear-cache
 
 USER www-data

@@ -8,24 +8,23 @@ ENV DOCROOT_SUBDIR="web" \
 
 USER root
 
-RUN set -xe && \
-    mv /usr/local/bin/actions.mk /usr/local/bin/drupal-php.mk && \
-    mkdir /usr/src/drupal && \
-    chown www-data:www-data /usr/src/drupal && \
+RUN set -xe; \
+    mv /usr/local/bin/actions.mk /usr/local/bin/drupal-php.mk; \
+    mkdir /usr/src/drupal; \
+    chown www-data:www-data /usr/src/drupal; \
     su-exec www-data composer create-project drupal-composer/drupal-project:7.x-dev /usr/src/drupal \
-        --stability dev --no-interaction && \
-    su-exec www-data drush @none dl registry_rebuild-7.x && \
-
+        --stability dev --no-interaction; \
+    su-exec www-data drush @none dl registry_rebuild-7.x; \
+    \
     # Apply patch to rederect to install.php when $databases defined.
-    apk add --update jq && \
-    cd /usr/src/drupal && \
-    su-exec www-data composer require cweagans/composer-patches && \
-    jq --indent 4 '.extra.patches."drupal/drupal"."Redirect to install.php"="'${PATCH_URL}'"' composer.json > tmp.json && \
-    mv tmp.json composer.json && \
-    chown www-data:www-data composer.json && \
-    apk del --purge jq && \
-    su-exec www-data composer update -d /usr/src/drupal && \
-
+    apk add --update jq; \
+    cd /usr/src/drupal; \
+    su-exec www-data composer require cweagans/composer-patches; \
+    jq --indent 4 '.extra.patches."drupal/drupal"."Redirect to install.php"="'${PATCH_URL}'"' composer.json > tmp.json; \
+    mv tmp.json composer.json; \
+    chown www-data:www-data composer.json; \
+    apk del --purge jq; \
+    su-exec www-data composer update -d /usr/src/drupal; \
     su-exec www-data composer clear-cache
 
 USER www-data
