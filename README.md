@@ -37,6 +37,17 @@ For better reliability we additionally release images with stability tags (`wodb
 
 See [wodby/drupal-php](https://github.com/wodby/drupal-php)
 
+##### Drupal 8 settings.php variables
+
+| Variable                       | Default Value                             |
+| ------------------------------ | ----------------------------------------- |
+| `DB_HOST`                      | `mariadb`                                 |
+| `DB_NAME`                      | `drupal`                                  |
+| `DB_USER`                      | `drupal`                                  |
+| `DB_PASSWORD`                  | `drupal`                                  |
+| `DB_DRIVER`                    | `mysql`                                   |
+| `DRUPAL_TRUSTED_HOST_PATTERNS` | `'\\.localhost$', '\\.local$', '\\.loc$'` |
+
 ## Complete Drupal Stack
 
 See [wodby/docker4drupal](https://github.com/wodby/docker4drupal)
