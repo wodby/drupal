@@ -1,6 +1,6 @@
-ARG FROM_TAG
+ARG BASE_IMAGE_TAG
 
-FROM wodby/drupal-php:${FROM_TAG}
+FROM wodby/drupal-php:${BASE_IMAGE_TAG}
 
 COPY make.yml /usr/src/drupal/
 
