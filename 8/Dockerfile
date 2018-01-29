@@ -13,6 +13,7 @@ RUN set -ex; \
     chown www-data:www-data /usr/src/drupal; \
     su-exec www-data composer create-project drupal-composer/drupal-project:8.x-dev /usr/src/drupal \
         --stability dev --no-interaction; \
+    echo "$(cat /etc/sudoers.d/www-data), /usr/local/bin/init.sh" > /etc/sudoers.d/www-data; \
     su-exec www-data composer clear-cache
 
 USER www-data
