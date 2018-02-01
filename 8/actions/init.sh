@@ -14,7 +14,7 @@ fi
 
 if [[ ! -f "${DRUPAL_ROOT}/index.php" ]]; then
     echo >&2 "${APP_NAME} not found in ${APP_ROOT} - copying now..."
-    rsync -rltog "/usr/src/drupal/" "${APP_ROOT}/"
+    rsync -rltogp "/usr/src/drupal/" "${APP_ROOT}/"
     echo >&2 "Complete! ${APP_NAME} has been successfully copied to ${APP_ROOT}"
 
     if [[ -z "${WODBY_APP_NAME}" ]]; then
