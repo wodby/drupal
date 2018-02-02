@@ -4,9 +4,12 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/wodby/drupal.svg)](https://hub.docker.com/r/wodby/drupal)
 [![Docker Stars](https://img.shields.io/docker/stars/wodby/drupal.svg)](https://hub.docker.com/r/wodby/drupal)
 [![Docker Layers](https://images.microbadger.com/badges/image/wodby/drupal.svg)](https://microbadger.com/images/wodby/drupal)
-[![Wodby Slack](http://slack.wodby.com/badge.svg)](http://slack.wodby.com)
 
 ## Docker Images
+
+!!! For better reliability we release images with stability tags (`wodby/drupal:8-7.1-X.X.X`) which correspond to [git tags](https://github.com/wodby/drupal/releases). We **STRONGLY RECOMMEND** using images only with stability tags. 
+
+Overview:
 
 * All images are based on Alpine Linux
 * Base image: [wodby/drupal-php](https://github.com/wodby/drupal-php)
@@ -29,13 +32,9 @@
 | `6-5.6-dev` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/6/Dockerfile)       | 6      | 5.6 |
 | `6-5.3` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/6/Dockerfile)           | 6      | 5.3 |
 
-For better reliability we additionally release images with stability tags (`wodby/drupal:8-7.1-X.X.X`) which correspond to [git tags](https://github.com/wodby/drupal/releases). We **strongly recommend** using images only with stability tags. 
-
 > The 5.3 version is no longer supported by PHP team, we highly encourage switching to 5.6 
 
 ## Environment Variables
-
-See [wodby/drupal-php](https://github.com/wodby/drupal-php)
 
 ##### Drupal 8 settings.php variables
 
@@ -47,6 +46,12 @@ See [wodby/drupal-php](https://github.com/wodby/drupal-php)
 | `DB_PASSWORD`                  | `drupal`                                  |
 | `DB_DRIVER`                    | `mysql`                                   |
 | `DRUPAL_TRUSTED_HOST_PATTERNS` | `'\\.localhost$', '\\.local$', '\\.loc$'` |
+
+See [wodby/drupal-php](https://github.com/wodby/drupal-php) for all variables.
+
+## Orchestration Actions
+
+See [wodby/drupal-php](https://github.com/wodby/drupal-php) for all actions.
 
 ## Complete Drupal Stack
 
