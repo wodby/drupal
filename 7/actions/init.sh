@@ -12,7 +12,7 @@ if [[ "${EUID}" != 0 ]]; then
    exit 1
 fi
 
-if [[ ! -f "${DRUPAL_ROOT}/index.php" ]]; then
+if [[ ! -f "${APP_ROOT}/web/index.php" ]]; then
     echo >&2 "${APP_NAME} not found in ${APP_ROOT} - copying now..."
     rsync -rltogp "/usr/src/drupal/" "${APP_ROOT}/"
     echo >&2 "Complete! ${APP_NAME} has been successfully copied to ${APP_ROOT}"
