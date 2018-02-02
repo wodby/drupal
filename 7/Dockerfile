@@ -16,7 +16,6 @@ RUN set -xe; \
     \
     su-exec www-data composer create-project drupal-composer/drupal-project:7.x-dev /usr/src/drupal \
         --stability dev --no-interaction; \
-    su-exec www-data drush @none dl registry_rebuild-7.x; \
     \
     # Apply patch to rederect to install.php when $databases defined.
     apk add --update jq; \

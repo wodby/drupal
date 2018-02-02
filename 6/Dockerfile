@@ -13,7 +13,6 @@ RUN set -ex; \
     chown www-data:www-data /usr/src/drupal; \
     \
     su-exec www-data drush make make.yml -y; \
-    su-exec www-data drush @none dl registry_rebuild-7.x; \
     \
     echo "$(cat /etc/sudoers.d/www-data), /usr/local/bin/init.sh" > /etc/sudoers.d/www-data; \
     \
