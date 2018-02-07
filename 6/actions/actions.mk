@@ -3,4 +3,4 @@
 .PHONY: init
 
 init:
-	DRUPAL_ROOT=$(DRUPAL_ROOT) init.sh
+	sudo -E init.sh
