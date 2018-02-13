@@ -19,6 +19,6 @@ if [[ ! -f "${APP_ROOT}/web/index.php" ]]; then
 
     if [[ -z "${WODBY_APP_NAME}" ]]; then
         path="${APP_ROOT}/web/sites/default/"
-        su-exec www-data cp "${path}/default.settings.php" "${path}/settings.php"
+        su-exec wodby cp "${path}/default.settings.php" "${path}/settings.php"
     fi
 fi

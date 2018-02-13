@@ -18,7 +18,7 @@ if [[ ! -f "${APP_ROOT}/web/index.php" ]]; then
     echo >&2 "Complete! ${APP_NAME} has been successfully copied to ${APP_ROOT}"
 
     if [[ -z "${WODBY_APP_NAME}" ]]; then
-        su-exec www-data mkdir -p /var/www/files/config/sync_dir
-        su-exec www-data gotpl /etc/gotpl/settings.php.tpl >> "${APP_ROOT}/web/sites/default/settings.php"
+        su-exec wodby mkdir -p /var/www/files/config/sync_dir
+        su-exec wodby gotpl /etc/gotpl/settings.php.tpl >> "${APP_ROOT}/web/sites/default/settings.php"
     fi
 fi

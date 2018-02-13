@@ -12,19 +12,19 @@ RUN set -ex; \
     \
     mv /usr/local/bin/actions.mk /usr/local/bin/drupal-php.mk; \
     cd /usr/src/drupal; \
-    chown www-data:www-data /usr/src/drupal; \
+    chown wodby:wodby /usr/src/drupal; \
     \
     # Ensure drush version is compatible with Drupal 6 (PHP 5.6 case).
-    su-exec www-data composer global remove drush/drush; \
-    su-exec www-data composer global require drush/drush:"${DRUSH_VER}"; \
+    su-exec wodby composer global remove drush/drush; \
+    su-exec wodby composer global require drush/drush:"${DRUSH_VER}"; \
     \
-    su-exec www-data drush make make.yml -y; \
+    su-exec wodby drush make make.yml -y; \
     \
-    echo "$(cat /etc/sudoers.d/www-data), /usr/local/bin/init.sh" > /etc/sudoers.d/www-data; \
+    echo "$(cat /etc/sudoers.d/wodby), /usr/local/bin/init.sh" > /etc/sudoers.d/wodby; \
     \
     rm make.yml
 
-USER www-data
+USER wodby
 
 COPY init /docker-entrypoint-init.d/
 COPY actions /usr/local/bin/
