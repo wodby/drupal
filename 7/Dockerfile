@@ -25,7 +25,9 @@ RUN set -xe; \
     mv tmp.json composer.json; \
     chown wodby:wodby composer.json; \
     \
-    echo "$(cat /etc/sudoers.d/wodby), /usr/local/bin/init.sh" > /etc/sudoers.d/wodby; \
+    if [[ -z "${PHP_DEV}" ]]; then \
+        echo "$(cat /etc/sudoers.d/wodby), /usr/local/bin/init" > /etc/sudoers.d/wodby; \
+    fi; \
     \
     apk del --purge jq; \
     su-exec wodby composer update -d /usr/src/drupal; \

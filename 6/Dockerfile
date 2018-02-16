@@ -20,7 +20,9 @@ RUN set -ex; \
     \
     su-exec wodby drush make make.yml -y; \
     \
-    echo "$(cat /etc/sudoers.d/wodby), /usr/local/bin/init.sh" > /etc/sudoers.d/wodby; \
+    if [[ -z "${PHP_DEV}" ]]; then \
+        echo "$(cat /etc/sudoers.d/wodby), /usr/local/bin/init" > /etc/sudoers.d/wodby; \
+    fi; \
     \
     rm make.yml
 

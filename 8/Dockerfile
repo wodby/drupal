@@ -16,7 +16,9 @@ RUN set -ex; \
     su-exec wodby composer create-project drupal-composer/drupal-project:8.x-dev /usr/src/drupal \
         --stability dev --no-interaction; \
     \
-    echo "$(cat /etc/sudoers.d/wodby), /usr/local/bin/init.sh" > /etc/sudoers.d/wodby; \
+    if [[ -z "${PHP_DEV}" ]]; then \
+        echo "$(cat /etc/sudoers.d/wodby), /usr/local/bin/init" > /etc/sudoers.d/wodby; \
+    fi; \
     \
     su-exec wodby composer clear-cache
 
