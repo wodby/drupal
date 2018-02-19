@@ -29,4 +29,4 @@ RUN set -ex; \
 USER wodby
 
 COPY init /docker-entrypoint-init.d/
-COPY actions /usr/local/bin/
+COPY bin /usr/local/bin/

@@ -26,4 +26,4 @@ USER wodby
 
 COPY settings.php.tpl /etc/gotpl/
 COPY init /docker-entrypoint-init.d/
-COPY actions /usr/local/bin/
+COPY bin /usr/local/bin/

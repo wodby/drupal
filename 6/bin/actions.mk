@@ -3,4 +3,4 @@
 .PHONY: init
 
 init:
-	sudo -E init
+	@sudo -E init
