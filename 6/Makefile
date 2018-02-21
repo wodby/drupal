@@ -37,7 +37,10 @@ endif
 default: build
 
 build:
-	docker build -t $(REPO):$(TAG) --build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) ./
+	docker build -t $(REPO):$(TAG) \
+		--build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) \
+		--build-arg DRUPAL_VER=$(DRUPAL_VER) \
+		./
 
 test:
 	IMAGE=$(REPO):$(TAG) ./test
