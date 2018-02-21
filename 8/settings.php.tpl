@@ -6,7 +6,7 @@ $databases['default']['default'] = [
     'driver' => '{{ getenv "DB_DRIVER" "mysql" }}',
 ];
 
-$config_directories['sync'] = '/var/www/files/config/sync_dir';
+$config_directories['sync'] = '{{ getenv "FILES_DIR" }}/config/sync_dir';
 $settings['trusted_host_patterns'] = array(
     {{ getenv "DRUPAL_TRUSTED_HOST_PATTERNS" "'\\.localhost$', '\\.local$', '\\.loc$'" }}
 );
