@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [[ -n "${DEBUG}" ]]; then
+    set -x
+fi
+
+drupal_ver=$1
+
+url="https://raw.githubusercontent.com/drupal/drupal/${drupal_ver}/sites/default/default.settings.php"
+
+array=(
+    "/orig/default.settings.php::${url}"
+)
+
+outdated=0
+
+for index in "${array[@]}" ; do
+    local="${index%%::*}"
+    remote="${index##*::}"
+
+    md5_local=$(cat "${local}" | md5sum)
+    md5_remote=$(wget -qO- "${remote}" | md5sum)
+
+    echo "Checking ${local}"
+
+    if [[ "${md5_local}" != "${md5_remote}" ]]; then
+        echo "!!! OUTDATED"
+        echo "${remote}"
+        outdated=1
+    else
+        echo "OK"
+    fi
+done
+
+[[ "${outdated}" == 0 ]] || exit 1

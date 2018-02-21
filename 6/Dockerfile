@@ -4,7 +4,10 @@ FROM wodby/drupal-php:${BASE_IMAGE_TAG}
 
 COPY make.yml /usr/src/drupal/
 
-ENV DRUSH_VER="7.4.0"
+ARG DRUPAL_VER
+
+ENV DRUPAL_VER="${DRUPAL_VER}" \
+    DRUSH_VER="7.4.0"
 
 USER root
 

@@ -1,17 +1,19 @@
 -include env_make
 
-DRUPAL_VER = 7
-PHP_VER ?= 7.1
+DRUPAL_VER = 7.56
+DRUPAL_VER_MAJOR ?= $(shell echo "${DRUPAL_VER}" | grep -oE '^[0-9]+')
 
+PHP_VER ?= 7.1
 BASE_IMAGE_TAG = $(PHP_VER)
+
 REPO = wodby/drupal
-NAME = drupal-$(DRUPAL_VER)-$(PHP_VER)
+NAME = drupal-$(DRUPAL_VER_MAJOR)-$(PHP_VER)
 
 ifeq ($(TAG),)
     ifeq ($(PHP_DEV),)
-        TAG ?= $(DRUPAL_VER)-$(PHP_VER)
+        TAG ?= $(DRUPAL_VER_MAJOR)-$(PHP_VER)
     else
-        TAG := $(DRUPAL_VER)-$(PHP_VER)-dev
+        TAG := $(DRUPAL_VER_MAJOR)-$(PHP_VER)-dev
     endif
 endif
 
@@ -35,7 +37,10 @@ endif
 default: build
 
 build:
-	docker build -t $(REPO):$(TAG) --build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) ./
+	docker build -t $(REPO):$(TAG) \
+		--build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) \
+		--build-arg DRUPAL_VER=$(DRUPAL_VER) \
+		./
 
 test:
 	IMAGE=$(REPO):$(TAG) ./test
@@ -60,5 +65,11 @@ logs:
 
 clean:
 	-docker rm -f $(NAME)
+
+compare-orig-configs:
+	docker run --rm \
+		-v $(PWD)/compare_orig_configs:/usr/local/bin/compare_orig_configs \
+		-v $(PWD)/orig:/orig \
+		wodby/alpine compare_orig_configs $(DRUPAL_VER)
 
 release: build push

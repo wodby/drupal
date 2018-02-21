@@ -1,17 +1,19 @@
 -include env_make
 
-DRUPAL_VER = 6
-PHP_VER ?= 5.6
+DRUPAL_VER = 6.38
+DRUPAL_VER_MAJOR ?= $(shell echo "${DRUPAL_VER}" | grep -oE '^[0-9]+')
 
+PHP_VER ?= 5.6
 BASE_IMAGE_TAG = $(PHP_VER)
+
 REPO = wodby/drupal
-NAME = drupal-$(DRUPAL_VER)-$(PHP_VER)
+NAME = drupal-$(DRUPAL_VER_MAJOR)-$(PHP_VER)
 
 ifeq ($(TAG),)
     ifeq ($(PHP_DEV),)
-        TAG ?= $(DRUPAL_VER)-$(PHP_VER)
+        TAG ?= $(DRUPAL_VER_MAJOR)-$(PHP_VER)
     else
-        TAG := $(DRUPAL_VER)-$(PHP_VER)-dev
+        TAG := $(DRUPAL_VER_MAJOR)-$(PHP_VER)-dev
     endif
 endif
 
@@ -60,5 +62,8 @@ logs:
 
 clean:
 	-docker rm -f $(NAME)
+
+compare-orig-configs:
+	echo "Skipping."
 
 release: build push

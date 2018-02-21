@@ -6,31 +6,31 @@ services:
 env:
   global:
     - LATEST_TAG=8-7.1
+    - DRUPAL8=8.4.4
+    - DRUPAL7=7.56
+    - DRUPAL6=6.38
   matrix:
-    - TAG=8-7.1 DRUPAL_VER=8 PHP_VER=7.1
-    - TAG=8-7.0 DRUPAL_VER=8 PHP_VER=7.0
-    - TAG=7-7.1 DRUPAL_VER=7 PHP_VER=7.1
-    - TAG=7-7.0 DRUPAL_VER=7 PHP_VER=7.0
-    - TAG=7-5.6 DRUPAL_VER=7 PHP_VER=5.6
-    - TAG=6-5.6 DRUPAL_VER=6 PHP_VER=5.6
-    - TAG=6-5.3 DRUPAL_VER=6 PHP_VER=5.3
-    - TAG=8-7.1-dev DRUPAL_VER=8 PHP_VER=7.1 PHP_DEV=1
-    - TAG=8-7.0-dev DRUPAL_VER=8 PHP_VER=7.0 PHP_DEV=1
-    - TAG=7-7.1-dev DRUPAL_VER=7 PHP_VER=7.1 PHP_DEV=1
-    - TAG=7-7.0-dev DRUPAL_VER=7 PHP_VER=7.0 PHP_DEV=1
-    - TAG=7-5.6-dev DRUPAL_VER=7 PHP_VER=5.6 PHP_DEV=1
-    - TAG=6-5.6-dev DRUPAL_VER=6 PHP_VER=5.6 PHP_DEV=1
-    - TAG=6-5.3-dev DRUPAL_VER=6 PHP_VER=5.3 PHP_DEV=1
+    - TAG=8-7.1 DRUPAL_VER="${DRUPAL8}" PHP_VER=7.1
+    - TAG=8-7.0 DRUPAL_VER="${DRUPAL8}" PHP_VER=7.0
+    - TAG=7-7.1 DRUPAL_VER="${DRUPAL7}" PHP_VER=7.1
+    - TAG=7-7.0 DRUPAL_VER="${DRUPAL7}" PHP_VER=7.0
+    - TAG=7-5.6 DRUPAL_VER="${DRUPAL7}" PHP_VER=5.6
+    - TAG=6-5.6 DRUPAL_VER="${DRUPAL6}" PHP_VER=5.6
+    - TAG=6-5.3 DRUPAL_VER="${DRUPAL6}" PHP_VER=5.3
+    - TAG=8-7.1-dev DRUPAL_VER="${DRUPAL8}" PHP_VER=7.1 PHP_DEV=1
+    - TAG=8-7.0-dev DRUPAL_VER="${DRUPAL8}" PHP_VER=7.0 PHP_DEV=1
+    - TAG=7-7.1-dev DRUPAL_VER="${DRUPAL7}" PHP_VER=7.1 PHP_DEV=1
+    - TAG=7-7.0-dev DRUPAL_VER="${DRUPAL7}" PHP_VER=7.0 PHP_DEV=1
+    - TAG=7-5.6-dev DRUPAL_VER="${DRUPAL7}" PHP_VER=5.6 PHP_DEV=1
+    - TAG=6-5.6-dev DRUPAL_VER="${DRUPAL6}" PHP_VER=5.6 PHP_DEV=1
+    - TAG=6-5.3-dev DRUPAL_VER="${DRUPAL6}" PHP_VER=5.3 PHP_DEV=1
 
 script:
-  - cd ./"${DRUPAL_VER}"
-  - make && make test
+  - set -e
+  - cd ./"${DRUPAL_VER:0:1}"
+  - make compare-orig-configs
+  - make
+  - make test
 
 after_success:
   - bash "${TRAVIS_BUILD_DIR}/travis_release"
-
-notifications:
-  on_failure: never
-  slack:
-    secure: |
-      jfpZykBqxijML9R6AldvAF8Nwg9FMcx1ZpdGqgyy/ijmMAZI+AR7hqP/vwPOAKtvmglhb1v5BIF5+ktxg7Cxxc7nT1HSlOq3tHo/JR2PAQnloV06NGR5pk4aJHIYUnxstO9a5+59eMr38/AOnFjsNKgXz2KV+0PxS+O94zSbfaW5uCkOjQHVN0Hf/hb9J7mOen0Q29Vt0n0EFdkxq48yvbWhN2zzp1BxQypeqaDyISHdvVCw8ElvxPZJHdHweNIiGGNVOQ4JWeFuCREfOy1h+ZQGyHsspxUSrwiVoNR3bZdqQ8ucCXvuKaSGDXrUIp3eZwkXiL9I8KkROqmjlYDCQzPo9DC5tiLLs6mWufDGICreN/3Th/ezmN0aizUPpGDng+qD+0W30BfETayJPRw7ZLByMtyCTVHMKTJ4v8r1DNAFAi6k7dfZITVtgZ8R6MZUHAcAhCR6YO/07A2GkvftSsphvHFSDBGR2N2okUtvMHfSmjaLAELJNq+tdyziD+1ccVY0GrZhzpvCWhDhuR4+u/Ymy0is1mHskOcJ2jTl439MxPUZ+EE460VRvwiyUaXRjNz6HgkbbWzjdYbXgocdvc3yG9aPz+uNn32s36bZ6d4CGkw8TIOnUVOOYPNW79zmcFfUNXTdfqFoIAjybIS2Q3RV9NtR3QIJoXz4hZVOImc=
