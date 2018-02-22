@@ -10,7 +10,7 @@ src_dir="/usr/src/drupal"
 
 if [[ ! -f "${APP_ROOT}/web/index.php" ]]; then
     echo "${APP_NAME} not found in ${APP_ROOT} - copying now..."
-    rsync -a "${src_dir}/" "${APP_ROOT}/"
+    rsync -rltogp "${src_dir}/" "${APP_ROOT}/"
     echo "Complete! ${APP_NAME} has been successfully copied to ${APP_ROOT}"
 else
     latest_ver=$(drush status --fields=drupal-version -r "${src_dir}/web" | grep -oE '[0-9]+(\.[0-9]+){1,2}')
@@ -20,7 +20,7 @@ else
 
     if [[ "${res}" == 0 ]]; then
         echo "Current version of ${APP_NAME} is outdated (${current_ver}), updating to ${latest_ver}..."
-        rsync -a "${src_dir}/" "${APP_ROOT}/"
+        rsync -rltogp "${src_dir}/" "${APP_ROOT}/"
         echo "Complete! ${APP_NAME} has been successfully updated to ${latest_ver}"
     fi
 fi
