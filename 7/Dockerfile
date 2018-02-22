@@ -23,7 +23,7 @@ RUN set -xe; \
     cd /usr/src/drupal; \
     # Install specific Drupal version.
     sed -E -i 's#"drupal\/drupal":.+#"drupal/drupal": "'"${DRUPAL_VER}"'",#' composer.json; \
-    composer install; \
+    su-exec wodby composer install; \
     \
     # Apply patch to rederect to install.php when $databases defined.
     su-exec wodby composer require cweagans/composer-patches; \
