@@ -7,7 +7,7 @@ if [[ -n "${DEBUG}" ]]; then
 fi
 
 cid="$(
-	docker run -d -e DRUPAL_VERSION=7 "${IMAGE}"
+	docker run -d -e WODBY_APP_NAME=Test "${IMAGE}"
 )"
 trap "docker rm -vf ${cid} > /dev/null" EXIT
 
