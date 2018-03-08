@@ -6,7 +6,7 @@ services:
 env:
   global:
     - LATEST_TAG=8-7.1
-    - DRUPAL8=8.4.5
+    - DRUPAL8=8.5.0
     - DRUPAL7=7.57
     - DRUPAL6=6.38
     - BASE_IMAGE_STABILITY_TAG=4.2.0
