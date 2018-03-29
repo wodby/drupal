@@ -6,6 +6,7 @@ services:
 env:
   global:
     - LATEST_TAG=8-7.1
+    - BASE_IMAGE_STABILITY_TAG=4.2.3
   matrix:
     - TAG=8-7.1 DRUPAL=8 PHP_VER=7.1
     - TAG=8-7.0 DRUPAL=8 PHP_VER=7.0
@@ -23,4 +24,4 @@ script:
   - make test
 
 after_success:
-  - bash "${TRAVIS_BUILD_DIR}/travis_release"
+  - . "${TRAVIS_BUILD_DIR}/travis_release"
