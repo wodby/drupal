@@ -18,7 +18,7 @@ env:
 
 script:
   - set -e
-  - cd ./"${DRUPAL_VER:0:1}"
+  - cd "${DRUPAL}"
   - make compare-orig-configs
   - make
   - make test
