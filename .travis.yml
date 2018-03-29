@@ -17,10 +17,10 @@ env:
 
 script:
   - set -e
-  - cd ./"${DRUPAL_VER:0:1}"
+  - cd "${DRUPAL}"
   - make compare-orig-configs
   - make
   - make test
 
 after_success:
-  - bash "${TRAVIS_BUILD_DIR}/travis_release"
+  - . "${TRAVIS_BUILD_DIR}/travis_release"
