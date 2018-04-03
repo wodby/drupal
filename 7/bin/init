@@ -16,7 +16,7 @@ else
     latest_ver=$(drush status --fields=drupal-version -r "${src_dir}/web" | grep -oE '[0-9]+(\.[0-9]+){1,2}')
     current_ver=$(drush status --fields=drupal-version -r "${APP_ROOT}/web" | grep -oE '[0-9]+(\.[0-9]+){1,2}')
 
-    res=$(compare-semver.sh "${latest_ver}" "${current_ver}" ">")
+    res=$(compare_semver "${latest_ver}" "${current_ver}" ">")
 
     if [[ "${res}" == 0 ]]; then
         echo "Current version of ${APP_NAME} is outdated (${current_ver}), updating to ${latest_ver}..."
