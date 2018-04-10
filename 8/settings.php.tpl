@@ -4,6 +4,7 @@ $databases['default']['default'] = [
     'username' => '{{ getenv "DB_USER" "drupal" }}',
     'password' => '{{ getenv "DB_PASSWORD" "drupal" }}',
     'driver' => '{{ getenv "DB_DRIVER" "mysql" }}',
+    'prefix' => '{{ getenv "DB_PREFIX" }}',
 ];
 
 $config_directories['sync'] = '{{ getenv "FILES_DIR" }}/config/sync_dir';
