@@ -55,7 +55,7 @@ logs:
 clean:
 	-docker rm -f $(NAME)
 
-compare-orig-configs:
+check-configs:
 	echo "Skipping."
 
 release: build push
