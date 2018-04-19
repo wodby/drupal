@@ -1,6 +1,6 @@
 -include env_make
 
-DRUPAL_VER = 8.5.1
+DRUPAL_VER = 8.5.2
 DRUPAL_VER_MAJOR ?= $(shell echo "${DRUPAL_VER}" | grep -oE '^[0-9]+')
 
 PHP_VER ?= 7.1
@@ -32,7 +32,7 @@ build:
 		./
 
 test:
-	IMAGE=$(REPO):$(TAG) ./test
+	IMAGE=$(REPO):$(TAG) ./test.sh
 
 push:
 	docker push $(REPO):$(TAG)
@@ -56,6 +56,6 @@ clean:
 	-docker rm -f $(NAME)
 
 compare-orig-configs:
-	./compare_orig_configs $(DRUPAL_VER)
+	./check_configs.sh $(DRUPAL_VER)
 
 release: build push
