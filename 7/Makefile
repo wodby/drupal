@@ -56,6 +56,6 @@ clean:
 	-docker rm -f $(NAME)
 
 check-configs:
-	./check_configs.sh $(DRUPAL_VER)
+	./check-configs.sh $(DRUPAL_VER)
 
 release: build push
