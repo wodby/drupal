@@ -39,6 +39,7 @@ Overview:
 | `DB_USER`                      | `drupal`                                  |
 | `DB_PASSWORD`                  | `drupal`                                  |
 | `DB_DRIVER`                    | `mysql`                                   |
+| `DB_PREFIX`                    |                                           |
 | `DRUPAL_TRUSTED_HOST_PATTERNS` | `'\\.localhost$', '\\.local$', '\\.loc$'` |
 
 See [wodby/drupal-php](https://github.com/wodby/drupal-php) for all variables.
