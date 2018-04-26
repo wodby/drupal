@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [[ -n "${DEBUG}" ]]; then
+    set -x
+fi
+
+drupal_root=$1
+
+if [[ -z "${drupal_root}" ]]; then
+    drupal_root="${APP_ROOT}/web"
+fi
+
+# TODO: remove COLUMNS=0 with drush 8.1.17 travis_release.sh
+# see https://github.com/drush-ops/drush/issues/3410
+COLUMNS=0 drush status --fields=drupal-version -r "${drupal_root}" | grep -oE '[0-9]+(\.[0-9]+){1,2}'
