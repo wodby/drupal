@@ -6,7 +6,6 @@ services:
 env:
   global:
     - LATEST_TAG=8-7.1
-    - BASE_IMAGE_STABILITY_TAG=4.4.1
   matrix:
     - TAG=8-7.1 DRUPAL=8 PHP_VER=7.1 EXTRA_TAG=8
     - TAG=8-7.0 DRUPAL=8 PHP_VER=7.0
