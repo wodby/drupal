@@ -1,9 +1,9 @@
 -include env_make
 
-DRUPAL_VER = 8.5.3
+DRUPAL_VER = 8.5.4
 DRUPAL_VER_MAJOR ?= $(shell echo "${DRUPAL_VER}" | grep -oE '^[0-9]+')
 
-PHP_VER ?= 7.1
+PHP_VER ?= 7.2
 BASE_IMAGE_TAG = $(PHP_VER)
 
 REPO = wodby/drupal
