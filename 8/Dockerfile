@@ -32,6 +32,6 @@ RUN set -ex; \
 
 USER wodby
 
-COPY settings.php.tpl /etc/gotpl/
+COPY templates/settings.php.tmpl /etc/gotpl/
 COPY init /docker-entrypoint-init.d/
 COPY bin /usr/local/bin/
