@@ -4,20 +4,24 @@ services:
   - docker
 
 env:
+  global:
+    - DRUPAL8=8.5.6
+    - DRUPAL7=7.59
+    - DRUPAL6=6.38
   matrix:
-    - DRUPAL=8 PHP_VER=7.2 TAGS=8-7.2,8,latest
-    - DRUPAL=8 PHP_VER=7.1 TAGS=8-7.1
-    - DRUPAL=8 PHP_VER=7.0 TAGS=8-7.0
-    - DRUPAL=7 PHP_VER=7.2 TAGS=7-7.2,7
-    - DRUPAL=7 PHP_VER=7.1 TAGS=7-7.1
-    - DRUPAL=7 PHP_VER=7.0 TAGS=7-7.0
-    - DRUPAL=7 PHP_VER=5.6 TAGS=7-5.6
-    - DRUPAL=6 PHP_VER=5.6 TAGS=6-5.6,6
-    - DRUPAL=6 PHP_VER=5.3 TAGS=6-5.3
+    - DRUPAL_VER="${DRUPAL8}" PHP_VER=7.2 TAGS=8-7.2,8,latest
+    - DRUPAL_VER="${DRUPAL8}" PHP_VER=7.1 TAGS=8-7.1
+    - DRUPAL_VER="${DRUPAL8}" PHP_VER=7.0 TAGS=8-7.0
+    - DRUPAL_VER="${DRUPAL7}" PHP_VER=7.2 TAGS=7-7.2,7
+    - DRUPAL_VER="${DRUPAL7}" PHP_VER=7.1 TAGS=7-7.1
+    - DRUPAL_VER="${DRUPAL7}" PHP_VER=7.0 TAGS=7-7.0
+    - DRUPAL_VER="${DRUPAL7}" PHP_VER=5.6 TAGS=7-5.6
+    - DRUPAL_VER="${DRUPAL6}" PHP_VER=5.6 TAGS=6-5.6,6
+    - DRUPAL_VER="${DRUPAL6}" PHP_VER=5.3 TAGS=6-5.3
 
 script:
   - set -e
-  - cd "${DRUPAL}"
+  - cd "${DRUPAL_VER%%.*}"
   - make check-configs
   - make
   - make test
