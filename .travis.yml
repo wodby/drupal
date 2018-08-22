@@ -5,7 +5,7 @@ services:
 
 env:
   global:
-    - BASE_IMAGE_STABILITY_TAG=4.6.1
+    - BASE_IMAGE_STABILITY_TAG=4.6.2
     - DRUPAL8=8.5.6
     - DRUPAL7=7.59
     - DRUPAL6=6.38
