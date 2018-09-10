@@ -5,7 +5,7 @@ services:
 
 env:
   global:
-    - DRUPAL8=8.6.0
+    - DRUPAL8=8.6.1
     - DRUPAL7=7.59
     - DRUPAL6=6.38
   matrix:
