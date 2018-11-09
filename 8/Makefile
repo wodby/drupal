@@ -55,7 +55,4 @@ logs:
 clean:
 	-docker rm -f $(NAME)
 
-check-configs:
-	./check-configs.sh $(DRUPAL_VER)
-
 release: build push
