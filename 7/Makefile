@@ -1,6 +1,6 @@
 -include env_make
 
-DRUPAL_VER ?= 7.60
+DRUPAL_VER ?= 7.61
 DRUPAL_VER_MAJOR ?= $(shell echo "${DRUPAL_VER}" | grep -oE '^[0-9]+')
 
 PHP_VER ?= 7.2
@@ -54,8 +54,5 @@ logs:
 
 clean:
 	-docker rm -f $(NAME)
-
-check-configs:
-	./check-configs.sh $(DRUPAL_VER)
 
 release: build push
