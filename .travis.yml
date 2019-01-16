@@ -6,7 +6,7 @@ services:
 env:
   global:
     - DRUPAL8=8.6.6
-    - DRUPAL7=7.61
+    - DRUPAL7=7.62
   matrix:
     - DRUPAL_VER="${DRUPAL8}" PHP_VER=7.3 TAGS=8-7.3,8-7,8,latest
     - DRUPAL_VER="${DRUPAL8}" PHP_VER=7.2 TAGS=8-7.2
