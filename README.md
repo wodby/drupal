@@ -19,13 +19,10 @@ Overview:
 | Supported tags and respective `Dockerfile` links                                                         | Drupal | PHP |
 | -------------------------------------------------------------------------------------------------------- | ------ | --- |
 | `8-7.4`, `8-7`, `8`, `latest` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/Dockerfile) | 8      | 7.4 |
-| `8-7.4` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/Dockerfile)                       | 8      | 7.3 |
+| `8-7.3` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/Dockerfile)                       | 8      | 7.3 |
 | `8-7.2` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/Dockerfile)                       | 8      | 7.2 |
-| `8-7.1` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/Dockerfile)                       | 8      | 7.1 |
 | `7-7.3`, `7-7`, `7` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)           | 7      | 7.3 |
 | `7-7.2` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)                       | 7      | 7.2 |
-| `7-7.1` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)                       | 7      | 7.1 |
-| `7-5.6`, `7-5` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)                | 7      | 5.6 |
 
 ## Environment Variables
 
