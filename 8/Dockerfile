@@ -22,7 +22,7 @@ RUN set -ex; \
     cd /usr/src/drupal; \
     # Install specific Drupal version.
     sed -E -i 's#"drupal\/core":.+?8\..+?",?#"drupal/core": "'"${DRUPAL_VER}"'",#' composer.json; \
-    su-exec wodby composer install; \
+    COMPOSER_MEMORY_LIMIT=-1 su-exec wodby composer install; \
     \
     if [[ -z "${PHP_DEV}" ]]; then \
         echo "$(cat /etc/sudoers.d/wodby), /usr/local/bin/init" > /etc/sudoers.d/wodby; \
