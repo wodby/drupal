@@ -15,6 +15,10 @@ if [[ ! -f "${APP_ROOT}/web/index.php" ]]; then
 
     if [[ -z "${WODBY_APP_NAME}" ]]; then
         su-exec www-data mkdir -p "${FILES_DIR}/config/sync_dir"
+        if [[ ! -f "${APP_ROOT}/web/sites/default/settings.php" ]]; then
+          su-exec wodby touch "${APP_ROOT}/web/sites/default/settings.php"
+          echo "<?php" > "${APP_ROOT}/web/sites/default/settings.php"
+        fi
         su-exec wodby gotpl /etc/gotpl/settings.php.tmpl >> "${APP_ROOT}/web/sites/default/settings.php"
     fi
 else

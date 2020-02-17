@@ -16,12 +16,12 @@ RUN set -ex; \
     mkdir /usr/src/drupal; \
     chown wodby:wodby /usr/src/drupal; \
     \
-    su-exec wodby composer create-project drupal-composer/drupal-project:8.x-dev /usr/src/drupal \
-        --stability dev --no-interaction --no-install; \
+    minor_ver="${DRUPAL_VER%.*}"; \
+    su-exec wodby composer create-project "drupal/recommended-project:${minor_ver}.x" /usr/src/drupal  --no-interaction --no-install; \
     \
     cd /usr/src/drupal; \
     # Install specific Drupal version.
-    sed -E -i 's#"drupal\/core":.+?8\..+?",?#"drupal/core": "'"${DRUPAL_VER}"'",#' composer.json; \
+    sed -E -i 's#("drupal\/core-recommended": )"\^8\.[0-9]+"#\1"'"${DRUPAL_VER}"'"#' composer.json; \
     COMPOSER_MEMORY_LIMIT=-1 su-exec wodby composer install; \
     \
     if [[ -z "${PHP_DEV}" ]]; then \
