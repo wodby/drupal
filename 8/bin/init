@@ -7,25 +7,26 @@ if [[ -n "${DEBUG}" ]]; then
 fi
 
 src_dir="/usr/src/drupal"
+DRUPAL_ROOT ?= ${APP_ROOT}/web
 
-if [[ ! -f "${APP_ROOT}/web/index.php" ]]; then
+if [[ ! -f "${DRUPAL_ROOT}/index.php" ]]; then
     echo "${APP_NAME} not found in ${APP_ROOT} - copying now..."
-    rsync -a "${src_dir}/" "${APP_ROOT}/"
-    echo "Complete! ${APP_NAME} has been successfully copied to ${APP_ROOT}"
+    rsync -a "${src_dir}/" "${DRUPAL_ROOT}/"
+    echo "Complete! ${APP_NAME} has been successfully copied to ${DRUPAL_ROOT}"
 
     if [[ -z "${WODBY_APP_NAME}" ]]; then
         su-exec www-data mkdir -p "${FILES_DIR}/config/sync_dir"
-        su-exec wodby gotpl /etc/gotpl/settings.php.tmpl >> "${APP_ROOT}/web/sites/default/settings.php"
+        su-exec wodby gotpl /etc/gotpl/settings.php.tmpl >> "${DRUPAL_ROOT}/sites/default/settings.php"
     fi
 else
     latest_ver=$(su-exec wodby get_drupal_version "${src_dir}/web")
-    current_ver=$(su-exec wodby get_drupal_version "${APP_ROOT}/web")
+    current_ver=$(su-exec wodby get_drupal_version "${DRUPAL_ROOT}")
 
     res=$(compare_semver "${latest_ver}" "${current_ver}" ">")
 
     if [[ "${res}" == 0 ]]; then
         echo "Current version of ${APP_NAME} is outdated (${current_ver}), updating to ${latest_ver}..."
-        rsync -a "${src_dir}/" "${APP_ROOT}/"
+        rsync -a "${src_dir}/web" "${DRUPAL_ROOT}/"
         echo "Complete! ${APP_NAME} has been successfully updated to ${latest_ver}"
     fi
 fi
