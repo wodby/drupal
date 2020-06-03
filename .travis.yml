@@ -7,7 +7,7 @@ env:
   global:
   - GIT_MERGE_SEPARATOR_DUMMY_ENV_VAR=1
   - DRUPAL8=8.9.0
-  - DRUPAL7=7.70
+  - DRUPAL7=7.71
   matrix:
   - DRUPAL_VER="${DRUPAL8}" PHP_VER=7.4 TAGS=8-7.4,8-7,8,latest
   - DRUPAL_VER="${DRUPAL8}" PHP_VER=7.3 TAGS=8-7.3
