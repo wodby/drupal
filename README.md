@@ -7,18 +7,20 @@
 
 ## Docker Images
 
-❗For better reliability we release images with stability tags (`wodby/drupal:8-X.X.X`) which correspond to [git tags](https://github.com/wodby/drupal/releases). We strongly recommend using images only with stability tags. 
+❗For better reliability we release images with stability tags (`wodby/drupal:9-X.X.X`) which correspond to [git tags](https://github.com/wodby/drupal/releases). We strongly recommend using images only with stability tags. 
 
 Overview:
 
-* All images are based on Alpine Linux
+* All images based on Alpine Linux
 * Base image: [wodby/drupal-php](https://github.com/wodby/drupal-php)
 * [Travis CI builds](https://travis-ci.org/wodby/drupal) 
 * [Docker Hub](https://hub.docker.com/r/wodby/drupal)
 
 | Supported tags and respective `Dockerfile` links                                                         | Drupal | PHP |
 | -------------------------------------------------------------------------------------------------------- | ------ | --- |
-| `8-7.4`, `8-7`, `8`, `latest` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/Dockerfile) | 8      | 7.4 |
+| `9-7.4`, `9-7`, `9`, `latest` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/9/Dockerfile) | 9      | 7.4 |
+| `9-7.3` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/9/Dockerfile)                       | 9      | 7.3 |
+| `8-7.4`, `8-7`, `8`, [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/Dockerfile)          | 8      | 7.4 |
 | `8-7.3` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/Dockerfile)                       | 8      | 7.3 |
 | `8-7.2` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/Dockerfile)                       | 8      | 7.2 |
 | `7-7.3`, `7-7`, `7` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)           | 7      | 7.3 |
@@ -26,7 +28,7 @@ Overview:
 
 ## Environment Variables
 
-##### Drupal 8 settings.php variables
+##### Drupal 8/9 settings.php variables
 
 | Variable                       | Default Value                             |
 | ------------------------------ | ----------------------------------------- |

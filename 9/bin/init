@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [[ -n "${DEBUG}" ]]; then
+    set -x
+fi
+
+src_dir="/usr/src/drupal"
+
+if [[ ! -f "${APP_ROOT}/web/index.php" ]]; then
+    echo "${APP_NAME} not found in ${APP_ROOT} - copying now..."
+    rsync -a "${src_dir}/" "${APP_ROOT}/"
+    echo "Complete! ${APP_NAME} has been successfully copied to ${APP_ROOT}"
+
+    if [[ -z "${WODBY_APP_NAME}" ]]; then
+        su-exec www-data mkdir -p "${FILES_DIR}/config/sync_dir"
+        su-exec wodby gotpl /etc/gotpl/settings.php.tmpl >> "${APP_ROOT}/web/sites/default/settings.php"
+    fi
+else
+    latest_ver=$(su-exec wodby get_drupal_version "${src_dir}/web")
+    current_ver=$(su-exec wodby get_drupal_version "${APP_ROOT}/web")
+
+    res=$(compare_semver "${latest_ver}" "${current_ver}" ">")
+
+    if [[ "${res}" == 0 ]]; then
+        echo "Current version of ${APP_NAME} is outdated (${current_ver}), updating to ${latest_ver}..."
+        rsync -a "${src_dir}/" "${APP_ROOT}/"
+        echo "Complete! ${APP_NAME} has been successfully updated to ${latest_ver}"
+    fi
+fi
