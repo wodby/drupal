@@ -23,7 +23,8 @@ Overview:
 | `8-7.4`, `8-7`, `8`, [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/Dockerfile)          | 8      | 7.4 |
 | `8-7.3` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/Dockerfile)                       | 8      | 7.3 |
 | `8-7.2` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/Dockerfile)                       | 8      | 7.2 |
-| `7-7.3`, `7-7`, `7` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)           | 7      | 7.3 |
+| `7-7.4`, `7-7`, `7` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)           | 7      | 7.4 |
+| `7-7.3` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)                       | 7      | 7.3 |
 | `7-7.2` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)                       | 7      | 7.2 |
 
 ## Environment Variables
