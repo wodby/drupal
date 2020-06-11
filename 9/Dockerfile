@@ -16,13 +16,14 @@ RUN set -ex; \
     mkdir /usr/src/drupal; \
     chown wodby:wodby /usr/src/drupal; \
     \
-    su-exec wodby composer create-project "drupal/recommended-project=${DRUPAL_VER}" /usr/src/drupal \
-        --stability dev --no-interaction --no-install; \
+    COMPOSER_MEMORY_LIMIT=-1 su-exec wodby composer create-project "drupal/recommended-project=${DRUPAL_VER}" /usr/src/drupal --no-interaction; \
     \
     cd /usr/src/drupal; \
-    composer require drush/drush; \
+    cp web/sites/default/default.settings.php web/sites/default/settings.php; \
+    chown wodby:wodby web/sites/default/settings.php; \
+    su-exec wodby composer require drush/drush; \
     # @todo install console, currently in conflict with D9 https://github.com/hechoendrupal/drupal-console/issues/4220
-    #composer require --dev drupal/console:@stable; \
+    #su-exec wodby composer require --dev drupal/console:@stable; \
     \
     if [[ -z "${PHP_DEV}" ]]; then \
         echo "$(cat /etc/sudoers.d/wodby), /usr/local/bin/init" > /etc/sudoers.d/wodby; \
