@@ -14,6 +14,8 @@ if [[ ! -f "${APP_ROOT}/web/index.php" ]]; then
     echo "Complete! ${APP_NAME} has been successfully copied to ${APP_ROOT}"
 
     if [[ -z "${WODBY_APP_NAME}" ]]; then
+        hash_salt=$(openssl rand -base64 12)
+        export DRUPAL_HASH_SALT="${hash_salt}"
         su-exec www-data mkdir -p "${FILES_DIR}/config/sync_dir"
         su-exec wodby gotpl /etc/gotpl/settings.php.tmpl >> "${APP_ROOT}/web/sites/default/settings.php"
     fi
