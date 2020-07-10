@@ -7,7 +7,9 @@ $databases['default']['default'] = [
     'prefix' => '{{ getenv "DB_PREFIX" }}',
 ];
 
-$config_directories['sync'] = '{{ getenv "FILES_DIR" }}/config/sync_dir';
+$settings['config_sync_directory'] = '{{ getenv "FILES_DIR" }}/config/sync_dir';
+$settings['hash_salt'] = '{{ getenv "DRUPAL_HASH_SALT" "very-bad-salt" }}';
+
 $settings['trusted_host_patterns'] = array(
     {{ getenv "DRUPAL_TRUSTED_HOST_PATTERNS" "'\\.localhost$', '\\.local$', '\\.loc$'" }}
 );
