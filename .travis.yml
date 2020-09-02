@@ -6,7 +6,7 @@ services:
 env:
   global:
   - GIT_MERGE_SEPARATOR_DUMMY_ENV_VAR=1
-  - DRUPAL9=9.0.3
+  - DRUPAL9=9.0.4
   - DRUPAL8=8.9.3
   - DRUPAL7=7.72
   matrix:
