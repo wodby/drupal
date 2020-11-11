@@ -14,9 +14,9 @@ RUN set -ex; \
     \
     mv /usr/local/bin/actions.mk /usr/local/bin/drupal-php.mk; \
     mkdir /usr/src/drupal; \
-    chown wodby:wodby /usr/src/drupal; \
+    chown wodby:wodby -R /usr/src; \
     \
-    COMPOSER_MEMORY_LIMIT=-1 su-exec wodby composer create-project "drupal/recommended-project=${DRUPAL_VER}" /usr/src/drupal --no-interaction; \
+    COMPOSER_MEMORY_LIMIT=-1 su-exec wodby composer create-project "drupal/recommended-project:${DRUPAL_VER}" /usr/src/drupal --no-interaction; \
     \
     cd /usr/src/drupal; \
     cp web/sites/default/default.settings.php web/sites/default/settings.php; \
