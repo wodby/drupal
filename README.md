@@ -50,4 +50,3 @@ See [wodby/drupal-php](https://github.com/wodby/drupal-php) for all actions.
 ## Complete Drupal Stack
 
 See [wodby/docker4drupal](https://github.com/wodby/docker4drupal)
-
