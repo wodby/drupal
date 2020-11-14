@@ -34,6 +34,7 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: 9
+        base_image_stability_tag: ${{ env.BASE_IMAGE_STABILITY_TAG }}
   drupal-9-73:
     runs-on: ubuntu-latest
     steps:
@@ -46,6 +47,7 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: 9
+        base_image_stability_tag: ${{ env.BASE_IMAGE_STABILITY_TAG }}
   # drupal 8
   drupal-8-74:
     runs-on: ubuntu-latest
@@ -59,6 +61,7 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: 8
+        base_image_stability_tag: ${{ env.BASE_IMAGE_STABILITY_TAG }}
   drupal-8-73:
     runs-on: ubuntu-latest
     steps:
@@ -71,6 +74,7 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: 8
+        base_image_stability_tag: ${{ env.BASE_IMAGE_STABILITY_TAG }}
   drupal-8-72:
     runs-on: ubuntu-latest
     steps:
@@ -83,6 +87,7 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: 8
+        base_image_stability_tag: ${{ env.BASE_IMAGE_STABILITY_TAG }}
   # drupal 7
   drupal-7-74:
     runs-on: ubuntu-latest
@@ -96,6 +101,7 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: 7
+        base_image_stability_tag: ${{ env.BASE_IMAGE_STABILITY_TAG }}
   drupal-7-73:
     runs-on: ubuntu-latest
     steps:
@@ -108,6 +114,7 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: 7
+        base_image_stability_tag: ${{ env.BASE_IMAGE_STABILITY_TAG }}
   drupal-7-72:
     runs-on: ubuntu-latest
     steps:
@@ -120,3 +127,4 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: 7
+        base_image_stability_tag: ${{ env.BASE_IMAGE_STABILITY_TAG }}
