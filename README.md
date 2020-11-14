@@ -1,6 +1,6 @@
 # Vanilla Drupal Docker Container Image
 
-[![Build Status](https://travis-ci.org/wodby/drupal.svg?branch=master)](https://travis-ci.org/wodby/drupal)
+[![Build Status](https://github.com/wodby/drupal/workflows/Build%20docker%20image/badge.svg)](https://github.com/wodby/drupal/actions)
 [![Docker Pulls](https://img.shields.io/docker/pulls/wodby/drupal.svg)](https://hub.docker.com/r/wodby/drupal)
 [![Docker Stars](https://img.shields.io/docker/stars/wodby/drupal.svg)](https://hub.docker.com/r/wodby/drupal)
 [![Docker Layers](https://images.microbadger.com/badges/image/wodby/drupal.svg)](https://microbadger.com/images/wodby/drupal)
@@ -11,10 +11,10 @@
 
 Overview:
 
-* All images based on Alpine Linux
-* Base image: [wodby/drupal-php](https://github.com/wodby/drupal-php)
-* [Travis CI builds](https://travis-ci.org/wodby/drupal) 
-* [Docker Hub](https://hub.docker.com/r/wodby/drupal)
+- All images based on Alpine Linux
+- Base image: [wodby/drupal-php](https://github.com/wodby/drupal-php)
+- [GitHub actions builds](https://github.com/wodby/drupal/actions) 
+- [Docker Hub](https://hub.docker.com/r/wodby/drupal)
 
 | Supported tags and respective `Dockerfile` links                                                         | Drupal | PHP |
 | -------------------------------------------------------------------------------------------------------- | ------ | --- |
