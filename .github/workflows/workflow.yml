@@ -14,7 +14,7 @@ on:
 env:
   DRUPAL9: 9.0.8
   DRUPAL8: 8.9.9
-  DRUPAL7: 7.73
+  DRUPAL7: 7.74
 
 jobs:
   # drupal 9
