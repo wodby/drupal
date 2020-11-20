@@ -21,8 +21,6 @@ RUN set -xe; \
         --stability dev --no-interaction --no-install; \
     \
     cd /usr/src/drupal; \
-    # https://github.com/drupal-composer/preserve-paths/issues/28
-    sed -E -i 's#"drupal-composer\/preserve-paths":.+#"drupal-composer/preserve-paths": "dev-master",#' composer.json; \
     # Install specific Drupal version.
     sed -E -i 's#"drupal\/drupal":.+#"drupal/drupal": "'"${DRUPAL_VER}"'",#' composer.json; \
     su-exec wodby composer install; \
