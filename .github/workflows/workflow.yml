@@ -12,7 +12,7 @@ on:
   pull_request:
 
 env:
-  DRUPAL9: 9.0.8
+  DRUPAL9: 9.0.9
   DRUPAL8: 8.9.9
   DRUPAL7: 7.74
 
