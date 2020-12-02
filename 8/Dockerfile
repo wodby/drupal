@@ -22,9 +22,6 @@ RUN set -ex; \
     cd /usr/src/drupal; \
     # Install specific Drupal version.
     sed -E -i 's#"drupal\/core":.+?8\..+?",?#"drupal/core": "'"${DRUPAL_VER}"'",#' composer.json; \
-    # Delete console dependency until there's no composer 2.0 support
-    # https://github.com/hechoendrupal/drupal-console-extend-plugin/pull/25#issuecomment-729292137
-    sed -E -i '/"drupal\/console"/d' composer.json; \
     COMPOSER_MEMORY_LIMIT=-1 su-exec wodby composer install; \
     \
     if [[ -z "${PHP_DEV}" ]]; then \
