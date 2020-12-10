@@ -18,6 +18,18 @@ env:
 
 jobs:
   # drupal 9
+  drupal-9-80:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions
+      with:
+        version: ${{ env.DRUPAL9 }}
+        php_ver: '8.0'
+        tags: 9-8.0,9-8,9,latest
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        workdir: 9
   drupal-9-74:
     runs-on: ubuntu-latest
     steps:
@@ -25,8 +37,8 @@ jobs:
     - uses: ./.github/actions
       with:
         version: ${{ env.DRUPAL9 }}
-        php_ver: 7.4
-        tags: 9-7.4,9-7,9,latest
+        php_ver: '7.4'
+        tags: 9-7.4,9-7
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: 9
@@ -37,7 +49,7 @@ jobs:
     - uses: ./.github/actions
       with:
         version: ${{ env.DRUPAL9 }}
-        php_ver: 7.3
+        php_ver: '7.3'
         tags: 9-7.3
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
@@ -50,7 +62,7 @@ jobs:
     - uses: ./.github/actions
       with:
         version: ${{ env.DRUPAL8 }}
-        php_ver: 7.4
+        php_ver: '7.4'
         tags: 8-7.4,8-7,8
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
@@ -62,7 +74,7 @@ jobs:
     - uses: ./.github/actions
       with:
         version: ${{ env.DRUPAL8 }}
-        php_ver: 7.3
+        php_ver: '7.3'
         tags: 8-7.3
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
@@ -74,7 +86,7 @@ jobs:
     - uses: ./.github/actions
       with:
         version: ${{ env.DRUPAL8 }}
-        php_ver: 7.2
+        php_ver: '7.2'
         tags: 8-7.2
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
@@ -87,7 +99,7 @@ jobs:
     - uses: ./.github/actions
       with:
         version: ${{ env.DRUPAL7 }}
-        php_ver: 7.4
+        php_ver: '7.4'
         tags: 7-7.4,7-7,7
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
@@ -99,7 +111,7 @@ jobs:
     - uses: ./.github/actions
       with:
         version: ${{ env.DRUPAL7 }}
-        php_ver: 7.3
+        php_ver: '7.3'
         tags: 7-7.3
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
@@ -111,7 +123,7 @@ jobs:
     - uses: ./.github/actions
       with:
         version: ${{ env.DRUPAL7 }}
-        php_ver: 7.2
+        php_ver: '7.2'
         tags: 7-7.2
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
