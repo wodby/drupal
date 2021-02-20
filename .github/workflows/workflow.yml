@@ -71,16 +71,6 @@ jobs:
         php_ver: '7.3'
         tags: 8-7.3
         workdir: 8
-  drupal-8-72:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions
-      with:
-        version: ${{ env.DRUPAL8 }}
-        php_ver: '7.2'
-        tags: 8-7.2
-        workdir: 8
   # drupal 7
   drupal-7-74:
     runs-on: ubuntu-latest
@@ -101,14 +91,4 @@ jobs:
         version: ${{ env.DRUPAL7 }}
         php_ver: '7.3'
         tags: 7-7.3
-        workdir: 7
-  drupal-7-72:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions
-      with:
-        version: ${{ env.DRUPAL7 }}
-        php_ver: '7.2'
-        tags: 7-7.2
         workdir: 7
