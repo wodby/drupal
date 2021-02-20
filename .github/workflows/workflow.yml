@@ -15,6 +15,8 @@ env:
   DRUPAL9: 9.1.4
   DRUPAL8: 8.9.13
   DRUPAL7: 7.78
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
 
   # keep a few lines to avoid conflicts.
@@ -31,8 +33,6 @@ jobs:
         version: ${{ env.DRUPAL9 }}
         php_ver: '8.0'
         tags: 9-8.0,9-8,9,latest
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: 9
   drupal-9-74:
     runs-on: ubuntu-latest
@@ -43,8 +43,6 @@ jobs:
         version: ${{ env.DRUPAL9 }}
         php_ver: '7.4'
         tags: 9-7.4,9-7
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: 9
         base_image_stability_tag: ${{ env.BASE_IMAGE_STABILITY_TAG }}
   drupal-9-73:
@@ -56,8 +54,6 @@ jobs:
         version: ${{ env.DRUPAL9 }}
         php_ver: '7.3'
         tags: 9-7.3
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: 9
         base_image_stability_tag: ${{ env.BASE_IMAGE_STABILITY_TAG }}
   # drupal 8
@@ -70,8 +66,6 @@ jobs:
         version: ${{ env.DRUPAL8 }}
         php_ver: '7.4'
         tags: 8-7.4,8-7,8
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: 8
         base_image_stability_tag: ${{ env.BASE_IMAGE_STABILITY_TAG }}
   drupal-8-73:
@@ -83,8 +77,6 @@ jobs:
         version: ${{ env.DRUPAL8 }}
         php_ver: '7.3'
         tags: 8-7.3
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: 8
         base_image_stability_tag: ${{ env.BASE_IMAGE_STABILITY_TAG }}
   drupal-8-72:
@@ -96,8 +88,6 @@ jobs:
         version: ${{ env.DRUPAL8 }}
         php_ver: '7.2'
         tags: 8-7.2
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: 8
         base_image_stability_tag: ${{ env.BASE_IMAGE_STABILITY_TAG }}
   # drupal 7
@@ -110,8 +100,6 @@ jobs:
         version: ${{ env.DRUPAL7 }}
         php_ver: '7.4'
         tags: 7-7.4,7-7,7
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: 7
         base_image_stability_tag: ${{ env.BASE_IMAGE_STABILITY_TAG }}
   drupal-7-73:
@@ -123,8 +111,6 @@ jobs:
         version: ${{ env.DRUPAL7 }}
         php_ver: '7.3'
         tags: 7-7.3
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: 7
         base_image_stability_tag: ${{ env.BASE_IMAGE_STABILITY_TAG }}
   drupal-7-72:
@@ -136,7 +122,5 @@ jobs:
         version: ${{ env.DRUPAL7 }}
         php_ver: '7.2'
         tags: 7-7.2
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: 7
         base_image_stability_tag: ${{ env.BASE_IMAGE_STABILITY_TAG }}
