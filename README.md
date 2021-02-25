@@ -26,6 +26,8 @@ Overview:
 | `7-7.4`, `7-7`, `7` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)           | 7      | 7.4 |
 | `7-7.3` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)                       | 7      | 7.3 |
 
+All images built for `linux/amd64` and `linux/arm64`
+
 ## Environment Variables
 
 ##### Drupal 8/9 settings.php variables
