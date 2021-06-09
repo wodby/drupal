@@ -26,7 +26,6 @@ RUN set -xe; \
     su-exec wodby composer install; \
     \
     # Apply patch to rederect to install.php when $databases defined.
-    su-exec wodby composer require cweagans/composer-patches; \
     patch_url="https://gist.githubusercontent.com/csandanov/72d6e5d9bfd857491a87fa9131e5728c/raw/bff270bea6f5a05779a4fcd5a570dc3e36bb25ca/drupal-7-install-php-redirect.patch"; \
     jq --indent 4 '.extra.patches."drupal/drupal"."Redirect to install.php"="'${patch_url}'"' composer.json > tmp.json; \
     mv tmp.json composer.json; \
