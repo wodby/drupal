@@ -3,7 +3,6 @@
 [![Build Status](https://github.com/wodby/drupal/workflows/Build%20docker%20image/badge.svg)](https://github.com/wodby/drupal/actions)
 [![Docker Pulls](https://img.shields.io/docker/pulls/wodby/drupal.svg)](https://hub.docker.com/r/wodby/drupal)
 [![Docker Stars](https://img.shields.io/docker/stars/wodby/drupal.svg)](https://hub.docker.com/r/wodby/drupal)
-[![Docker Layers](https://images.microbadger.com/badges/image/wodby/drupal.svg)](https://microbadger.com/images/wodby/drupal)
 
 ## Docker Images
 
@@ -17,8 +16,9 @@ Overview:
 - [Docker Hub](https://hub.docker.com/r/wodby/drupal)
 
 | Supported tags and respective `Dockerfile` links                                                         | Drupal | PHP |
-| -------------------------------------------------------------------------------------------------------- | ------ | --- |
-| `9-8.0`, `9-8`, `9`, `latest` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/9/Dockerfile) | 9      | 8.0 |
+|----------------------------------------------------------------------------------------------------------|--------|-----|
+| `9-8.1`, `9-8`, `9`, `latest` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/9/Dockerfile) | 9      | 8.1 |
+| `9-8.0` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/9/Dockerfile)                       | 9      | 8.0 |
 | `9-7.4`, `9-7`                [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/9/Dockerfile) | 9      | 7.4 |
 | `9-7.3` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/9/Dockerfile)                       | 9      | 7.3 |
 | `8-7.4`, `8-7`, `8`, [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/Dockerfile)          | 8      | 7.4 |
@@ -34,7 +34,7 @@ All images built for `linux/amd64` and `linux/arm64`
 ##### Drupal 8/9 settings.php variables
 
 | Variable                       | Default Value                             |
-| ------------------------------ | ----------------------------------------- |
+|--------------------------------|-------------------------------------------|
 | `DB_HOST`                      | `mariadb`                                 |
 | `DB_NAME`                      | `drupal`                                  |
 | `DB_USER`                      | `drupal`                                  |
