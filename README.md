@@ -20,7 +20,6 @@ Overview:
 | `9-8.1`, `9-8`, `9`, `latest` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/9/Dockerfile) | 9      | 8.1 |
 | `9-8.0` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/9/Dockerfile)                       | 9      | 8.0 |
 | `9-7.4`, `9-7`                [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/9/Dockerfile) | 9      | 7.4 |
-| `8-7.4`, `8-7`, `8`, [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/8/Dockerfile)          | 8      | 7.4 |
 | `7-8.0`, `7-8`, `7` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)           | 7      | 8.0 |
 | `7-7.4`, `7-7` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)                | 7      | 7.4 |
 
