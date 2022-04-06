@@ -13,6 +13,9 @@ inputs:
   tags:
     description: image tags
     required: true
+  alpine_ver:
+    description: alpine version
+    required: true
   platform:
     description: drupal platform
     required: false
@@ -26,6 +29,7 @@ runs:
       PHP_VER: ${{ inputs.php_ver }}
       TAGS: ${{ inputs.tags }}
       PLATFORM: ${{ inputs.platform }}
+      ALPINE_VER: ${{ inputs.alpine_ver }}
     run: |
       set -e
       make buildx-build-amd64
