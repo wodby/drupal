@@ -34,7 +34,6 @@ jobs:
         tags: 9-8.1,9-8,9,latest
         workdir: 9
         platform: linux/amd64,linux/arm64
-        alpine_ver: 3.15
   drupal-9-80:
     runs-on: ubuntu-latest
     steps:
@@ -50,7 +49,6 @@ jobs:
         tags: 9-8.0
         workdir: 9
         platform: linux/amd64,linux/arm64
-        alpine_ver: 3.15
   drupal-9-74:
     runs-on: ubuntu-latest
     steps:
@@ -66,7 +64,6 @@ jobs:
         tags: 9-7.4,9-7
         workdir: 9
         platform: linux/amd64,linux/arm64
-        alpine_ver: 3.15
   # drupal 7
   drupal-7-80:
     runs-on: ubuntu-latest
@@ -83,7 +80,6 @@ jobs:
         tags: 7-8.0,7-8,7
         workdir: 7
         platform: linux/amd64,linux/arm64
-        alpine_ver: 3.15
   drupal-7-74:
     runs-on: ubuntu-latest
     steps:
@@ -99,86 +95,3 @@ jobs:
         tags: 7-7.4,7-7
         workdir: 7
         platform: linux/amd64,linux/arm64
-        alpine_ver: 3.15
-  # drupal 9
-  drupal-9-81-alpine313:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: docker/setup-qemu-action@v1
-      with:
-        platforms: amd64,arm64
-    - uses: docker/setup-buildx-action@v1
-    - uses: ./.github/actions
-      with:
-        version: ${{ env.DRUPAL9 }}
-        php_ver: '8.1'
-        tags: 9-8.1-alpine3.13,9-8-alpine3.13,9-alpine3.13,alpine3.13
-        workdir: 9
-        platform: linux/amd64,linux/arm64
-        alpine_ver: 3.13
-  drupal-9-80-alpinee313:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: docker/setup-qemu-action@v1
-      with:
-        platforms: amd64,arm64
-    - uses: docker/setup-buildx-action@v1
-    - uses: ./.github/actions
-      with:
-        version: ${{ env.DRUPAL9 }}
-        php_ver: '8.0'
-        tags: 9-8.0-alpine3.13
-        workdir: 9
-        platform: linux/amd64,linux/arm64
-        alpine_ver: 3.13
-  drupal-9-74-alpine313:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: docker/setup-qemu-action@v1
-      with:
-        platforms: amd64,arm64
-    - uses: docker/setup-buildx-action@v1
-    - uses: ./.github/actions
-      with:
-        version: ${{ env.DRUPAL9 }}
-        php_ver: '7.4'
-        tags: 9-7.4-alpine3.13,9-7-alpine3.13
-        workdir: 9
-        platform: linux/amd64,linux/arm64
-        alpine_ver: 3.13
-  # drupal 7
-  drupal-7-80-alpine313:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: docker/setup-qemu-action@v1
-      with:
-        platforms: amd64,arm64
-    - uses: docker/setup-buildx-action@v1
-    - uses: ./.github/actions
-      with:
-        version: ${{ env.DRUPAL7 }}
-        php_ver: '8.0'
-        tags: 7-8.0-alpine3.13,7-8-alpine3.13,7-alpine3.13
-        workdir: 7
-        platform: linux/amd64,linux/arm64
-        alpine_ver: 3.13
-  drupal-7-74-alpine313:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: docker/setup-qemu-action@v1
-      with:
-        platforms: amd64,arm64
-    - uses: docker/setup-buildx-action@v1
-    - uses: ./.github/actions
-      with:
-        version: ${{ env.DRUPAL7 }}
-        php_ver: '7.4'
-        tags: 7-7.4-alpine3.13,7-7-alpine3.13
-        workdir: 7
-        platform: linux/amd64,linux/arm64
-        alpine_ver: 3.13

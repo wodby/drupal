@@ -4,7 +4,6 @@ DRUPAL_VER ?= 7.89
 DRUPAL_VER_MAJOR ?= $(shell echo "${DRUPAL_VER}" | grep -oE '^[0-9]+')
 
 PHP_VER ?= 8.0
-ALPINE_VER ?= 3.15
 BASE_IMAGE_TAG = $(PHP_VER)
 
 REPO = wodby/drupal
@@ -13,7 +12,6 @@ NAME = drupal-$(DRUPAL_VER_MAJOR)-$(PHP_VER)
 TAG ?= $(DRUPAL_VER_MAJOR)-$(PHP_VER)
 
 PLATFORM ?= linux/amd64
-BASE_IMAGE_TAG := $(BASE_IMAGE_TAG)-alpine$(ALPINE_VER)
 
 ifneq ($(BASE_IMAGE_STABILITY_TAG),)
     BASE_IMAGE_TAG := $(BASE_IMAGE_TAG)-$(BASE_IMAGE_STABILITY_TAG)
