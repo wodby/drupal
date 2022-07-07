@@ -12,7 +12,7 @@ on:
   pull_request:
 
 env:
-  DRUPAL9: '9.4.1'
+  DRUPAL9: '9.4.2'
   DRUPAL7: '7.90'
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
