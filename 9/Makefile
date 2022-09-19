@@ -1,6 +1,6 @@
 -include env_make
 
-DRUPAL_VER ?= 9.5.0
+DRUPAL_VER ?= 9.4.5
 DRUPAL_VER_MAJOR ?= $(shell echo "${DRUPAL_VER}" | grep -oE '^[0-9]+')
 
 PHP_VER ?= 8.1
