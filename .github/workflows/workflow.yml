@@ -19,7 +19,7 @@ env:
 
 
   # keep a few lines to avoid conflicts.
-  BASE_IMAGE_STABILITY_TAG: 4.38.5
+  BASE_IMAGE_STABILITY_TAG: 4.39.0
 
 jobs:
   # drupal 9
