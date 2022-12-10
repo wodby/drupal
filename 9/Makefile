@@ -55,7 +55,9 @@ buildx-push:
 		./
 
 test:
-	cd ./tests && IMAGE=$(REPO):$(TAG) ./run.sh
+ifneq ($(PHP_VER),8.2)
+    cd ./tests && IMAGE=$(REPO):$(TAG) ./run.sh
+endif
 
 push:
 	docker push $(REPO):$(TAG)
