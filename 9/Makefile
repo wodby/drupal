@@ -3,7 +3,7 @@
 DRUPAL_VER ?= 9.4.9
 DRUPAL_VER_MAJOR ?= $(shell echo "${DRUPAL_VER}" | grep -oE '^[0-9]+')
 
-PHP_VER ?= 8.1
+PHP_VER ?= 8.2
 BASE_IMAGE_TAG = $(PHP_VER)
 
 REPO = wodby/drupal
