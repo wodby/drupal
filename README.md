@@ -17,8 +17,7 @@ Overview:
 
 | Supported tags and respective `Dockerfile` links                                                         | Drupal | PHP |
 |----------------------------------------------------------------------------------------------------------|--------|-----|
-| `9-8.2`, `9-8`, `9`, `latest` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/9/Dockerfile) | 9      | 8.2 |
-| `9-8.1` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/9/Dockerfile)                       | 9      | 8.1 |
+| `9-8.1`, `9-8`, `9`, `latest` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/9/Dockerfile) | 9      | 8.1 |
 | `9-8.0` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/9/Dockerfile)                       | 9      | 8.0 |
 | `7-8.1`, `7-8`, `7` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)           | 7      | 8.1 |
 | `7-8.0` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)                       | 7      | 8.0 |

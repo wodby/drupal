@@ -22,22 +22,6 @@ env:
   BASE_IMAGE_STABILITY_TAG: 4.39.0
 
 jobs:
-  # drupal 9
-  drupal-9-82:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: docker/setup-qemu-action@v1
-      with:
-        platforms: amd64,arm64
-    - uses: docker/setup-buildx-action@v1
-    - uses: ./.github/actions
-      with:
-        version: ${{ env.DRUPAL9 }}
-        php_ver: '8.2'
-        tags: 9-8.2,9-8,9,latest
-        workdir: 9
-        platform: linux/amd64,linux/arm64
   drupal-9-81:
     runs-on: ubuntu-latest
     steps:
@@ -50,7 +34,7 @@ jobs:
       with:
         version: ${{ env.DRUPAL9 }}
         php_ver: '8.1'
-        tags: 9-8.1
+        tags: 9-8.1,9-8,9,latest
         workdir: 9
         platform: linux/amd64,linux/arm64
   drupal-9-80:
