@@ -1,9 +1,7 @@
--include env_make
-
-DRUPAL_VER ?= 9.5.0
+DRUPAL_VER ?= 10.0.0
 DRUPAL_VER_MAJOR ?= $(shell echo "${DRUPAL_VER}" | grep -oE '^[0-9]+')
 
-PHP_VER ?= 8.1
+PHP_VER ?= 8.2
 BASE_IMAGE_TAG = $(PHP_VER)
 
 REPO = wodby/drupal
@@ -23,7 +21,7 @@ ifneq ($(STABILITY_TAG),)
     endif
 endif
 
-.PHONY: build buildx-build buildx-build-amd64 buildx-push test push shell run start stop logs clean release
+.PHONY: build buildx-build buildx-build-amd64 buildx-push push shell run start stop logs clean release
 
 default: build
 
