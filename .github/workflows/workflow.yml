@@ -13,7 +13,6 @@ on:
 
 env:
   DRUPAL10: '10.1.6'
-  DRUPAL9: '9.5.11'
   DRUPAL7: '7.98'
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
@@ -49,37 +48,6 @@ jobs:
         tags: 10-8.1
         workdir: 10
         platform: linux/amd64,linux/arm64
-  # drupal 9
-  drupal-9-81:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: docker/setup-qemu-action@v1
-      with:
-        platforms: amd64,arm64
-    - uses: docker/setup-buildx-action@v1
-    - uses: ./.github/actions
-      with:
-        version: ${{ env.DRUPAL9 }}
-        php_ver: '8.1'
-        tags: 9-8.1,9-8,9
-        workdir: 9
-        platform: linux/amd64,linux/arm64
-  drupal-9-80:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: docker/setup-qemu-action@v1
-      with:
-        platforms: amd64,arm64
-    - uses: docker/setup-buildx-action@v1
-    - uses: ./.github/actions
-      with:
-        version: ${{ env.DRUPAL9 }}
-        php_ver: '8.0'
-        tags: 9-8.0
-        workdir: 9
-        platform: linux/amd64,linux/arm64
   # drupal 7
   drupal-7-81:
     runs-on: ubuntu-latest
@@ -94,20 +62,5 @@ jobs:
         version: ${{ env.DRUPAL7 }}
         php_ver: '8.1'
         tags: 7-8.1,7-8,7
-        workdir: 7
-        platform: linux/amd64,linux/arm64
-  drupal-7-80:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: docker/setup-qemu-action@v1
-      with:
-        platforms: amd64,arm64
-    - uses: docker/setup-buildx-action@v1
-    - uses: ./.github/actions
-      with:
-        version: ${{ env.DRUPAL7 }}
-        php_ver: '8.0'
-        tags: '7-8.0'
         workdir: 7
         platform: linux/amd64,linux/arm64

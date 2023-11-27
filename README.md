@@ -6,23 +6,21 @@
 
 ## Docker Images
 
-❗For better reliability we release images with stability tags (`wodby/drupal:10-X.X.X`) which correspond to [git tags](https://github.com/wodby/drupal/releases). We strongly recommend using images only with stability tags. 
+❗For better reliability we release images with stability tags (`wodby/drupal:10-X.X.X`) which correspond
+to [git tags](https://github.com/wodby/drupal/releases). We strongly recommend using images only with stability tags.
 
 Overview:
 
 - All images based on Alpine Linux
 - Base image: [wodby/drupal-php](https://github.com/wodby/drupal-php)
-- [GitHub actions builds](https://github.com/wodby/drupal/actions) 
+- [GitHub actions builds](https://github.com/wodby/drupal/actions)
 - [Docker Hub](https://hub.docker.com/r/wodby/drupal)
 
 | Supported tags and respective `Dockerfile` links                                                             | Drupal | PHP |
 |--------------------------------------------------------------------------------------------------------------|--------|-----|
 | `10-8.2`, `10-8`, `10`, `latest` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/10/Dockerfile) | 10     | 8.2 |
 | `10-8.1` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/10/Dockerfile)                         | 10     | 8.1 |
-| `9-8.1`, `9-8`, `9`,  [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/9/Dockerfile)             | 9      | 8.1 |
-| `9-8.0` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/9/Dockerfile)                           | 9      | 8.0 |
 | `7-8.1`, `7-8`, `7` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)               | 7      | 8.1 |
-| `7-8.0` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)                           | 7      | 8.0 |
 
 All images built for `linux/amd64` and `linux/arm64`
 
