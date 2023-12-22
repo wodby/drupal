@@ -18,9 +18,11 @@ Overview:
 
 | Supported tags and respective `Dockerfile` links                                                             | Drupal | PHP |
 |--------------------------------------------------------------------------------------------------------------|--------|-----|
-| `10-8.2`, `10-8`, `10`, `latest` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/10/Dockerfile) | 10     | 8.2 |
+| `10-8.3`, `10-8`, `10`, `latest` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/10/Dockerfile) | 10     | 8.3 |
+| `10-8.2` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/10/Dockerfile)                         | 10     | 8.2 |
 | `10-8.1` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/10/Dockerfile)                         | 10     | 8.1 |
-| `7-8.1`, `7-8`, `7` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)               | 7      | 8.1 |
+| `7-8.2`, `7-8`, `7` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)               | 7      | 8.2 |
+| `7-8.1` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/7/Dockerfile)                           | 7      | 8.1 |
 
 All images built for `linux/amd64` and `linux/arm64`
 
