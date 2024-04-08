@@ -14,7 +14,7 @@ RUN set -xe; \
     \
     apk add --update jq; \
     mv /usr/local/bin/actions.mk /usr/local/bin/drupal-php.mk; \
-    mkdir /usr/src/drupal; \
+    mkdir -p /usr/src/drupal; \
     chown -R wodby:wodby /usr/src; \
     \
     su-exec wodby composer create-project drupal-composer/drupal-project:7.x-dev /usr/src/drupal \
