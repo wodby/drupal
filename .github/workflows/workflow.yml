@@ -13,7 +13,7 @@ on:
 
 env:
   DRUPAL10: '10.2.6'
-  DRUPAL7: '7.100'
+  DRUPAL7: '7.101'
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
