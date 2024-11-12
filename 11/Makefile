@@ -1,4 +1,4 @@
-DRUPAL_VER ?= 11.0.6
+DRUPAL_VER ?= 11.0.7
 DRUPAL_VER_MAJOR ?= $(shell echo "${DRUPAL_VER}" | grep -oE '^[0-9]+')
 
 PHP_VER ?= 8.3
