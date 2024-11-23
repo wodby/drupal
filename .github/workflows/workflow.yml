@@ -19,6 +19,21 @@ env:
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
 jobs:
+  drupal-11-84:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-qemu-action@v3
+        with:
+          platforms: amd64,arm64
+      - uses: docker/setup-buildx-action@v3
+      - uses: ./.github/actions
+        with:
+          version: ${{ env.DRUPAL11 }}
+          php_ver: '8.4'
+          tags: 11-8.4,11-8,11,latest
+          workdir: '11'
+          platform: linux/amd64,linux/arm64  
   drupal-11-83:
     runs-on: ubuntu-latest
     steps:
@@ -31,10 +46,25 @@ jobs:
       with:
         version: ${{ env.DRUPAL11 }}
         php_ver: '8.3'
-        tags: 11-8.3,11-8,11,latest
+        tags: 11-8.3
         workdir: '11'
         platform: linux/amd64,linux/arm64
   # drupal 10
+  drupal-10-84:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-qemu-action@v3
+        with:
+          platforms: amd64,arm64
+      - uses: docker/setup-buildx-action@v3
+      - uses: ./.github/actions
+        with:
+          version: ${{ env.DRUPAL10 }}
+          php_ver: '8.4'
+          tags: 10-8.4,10-8,10
+          workdir: '10'
+          platform: linux/amd64,linux/arm64
   drupal-10-83:
     runs-on: ubuntu-latest
     steps:
@@ -47,7 +77,7 @@ jobs:
       with:
         version: ${{ env.DRUPAL10 }}
         php_ver: '8.3'
-        tags: 10-8.3,10-8,10
+        tags: 10-8.3
         workdir: '10'
         platform: linux/amd64,linux/arm64
   drupal-10-82:
