@@ -20,7 +20,7 @@ env:
 
 
   # keep a few lines to avoid conflicts.
-  BASE_IMAGE_STABILITY_TAG: 4.65.4
+  BASE_IMAGE_STABILITY_TAG: 4.65.5
 
 jobs:
   drupal-11-84:
