@@ -84,9 +84,7 @@ jobs:
       matrix:
         php: [ '8.5', '8.4', '8.3' ]
         include:
-          - php: '8.5'
-            # we only have one version of major drupal, so these "latest" tags applied on the last PHP version.
-            latest_major: '1'
+          - php: '8.5'            
             latest_major_php: '1'
             latest_php: '1'
     steps:
@@ -99,8 +97,9 @@ jobs:
         with:
           version: ${{ env.DRUPAL11 }}
           php: ${{ matrix.php }}
-          latest: true
-          latest_major: ${{ matrix.latest_major }}
+          latest: 1
+          # we only have one version of major drupal.
+          latest_major: 1
           latest_php: ${{ matrix.latest_php }}
           latest_major_php: ${{ matrix.latest_major_php }}
           workdir: 11
@@ -114,8 +113,6 @@ jobs:
         php: [ '8.4', '8.3', '8.2', '8.1' ]
         include:
           - php: '8.4'
-            # we only have one version of major drupal, so these "latest" tags applied on the last PHP version.
-            latest_major: '1'
             latest_major_php: '1'
             latest_php: '1'        
     steps:
@@ -128,7 +125,8 @@ jobs:
         with:
           version: ${{ env.DRUPAL10 }}
           php: ${{ matrix.php }}
-          latest_major: ${{ matrix.latest_major }}
+          # we only have one version of major drupal.
+          latest_major: 1
           latest_php: ${{ matrix.latest_php }}
           latest_major_php: ${{ matrix.latest_major_php }}
           workdir: 10
