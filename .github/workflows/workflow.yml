@@ -14,130 +14,84 @@ on:
 env:
   DRUPAL11: '11.3.1'
   DRUPAL10: '10.6.1'
-  DRUPAL7: '7.103'
-  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
 jobs:
-  drupal-11-84:
+  setup:
     runs-on: ubuntu-latest
+    outputs:
+      drupal-versions: ${{ steps.set-matrix.outputs.drupal-versions }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: docker/setup-qemu-action@v3
+      - id: set-matrix
+        run: |
+          cat << 'EOF' > versions.json
+          [
+            {"key": "drupal11", "version": "${{ env.DRUPAL11 }}", "workdir": "11", "latest": "latest"},
+            {"key": "drupal10", "version": "${{ env.DRUPAL10 }}", "workdir": "10", "latest": ""}
+          ]
+          EOF
+          echo "drupal-versions=$(cat versions.json | jq -c .)" >> $GITHUB_OUTPUT
+
+  build:
+    needs: setup
+    strategy:
+      matrix:
+        drupal: ${{ fromJson(needs.setup.outputs.drupal-versions) }}
+        php: [ '8.5', '8.4', '8.3', '8.2', '8.1' ]
+        arch:
+          - amd64
+          - arm64
+        include:
+          - arch: amd64
+            runner: ubuntu-24.04
+          - arch: arm64
+            runner: ubuntu-24.04-arm
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: docker/login-action@v3
         with:
-          platforms: amd64,arm64
-      - uses: docker/setup-buildx-action@v3
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: build and push
+        env:
+          DRUPAL_VER: ${{ matrix.drupal.version }}
+          PHP_VER: ${{ matrix.php }}
+          ARCH: ${{ matrix.arch }}
+        working-directory: ${{ matrix.drupal.workdir }}
+        run: |
+          make
+          make test
+          make push
+
+  push:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    strategy:
+      matrix:
+        drupal: ${{ fromJson(needs.setup.outputs.drupal-versions) }}
+        php: [ '8.5', '8.4', '8.3', '8.2', '8.1' ]
+        include:
+          - php: '8.5'
+            # we only have one version of major drupal, so these "latest" tags applied on the last PHP version..
+            latest_major: '1'
+            latest_major_php: '1'
+            latest_php: '1'
+        exclude:
+          - php: '8.5'
+            drupal: { key: 'drupal10' }
+    steps:
+      - uses: actions/checkout@v6
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
       - uses: ./.github/actions
         with:
-          version: ${{ env.DRUPAL11 }}
-          php_ver: '8.4'
-          tags: 11-8.4,11-8,11,latest
-          workdir: '11'
-          platform: linux/amd64,linux/arm64  
-  drupal-11-83:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: docker/setup-qemu-action@v3
-      with:
-        platforms: amd64,arm64
-    - uses: docker/setup-buildx-action@v3
-    - uses: ./.github/actions
-      with:
-        version: ${{ env.DRUPAL11 }}
-        php_ver: '8.3'
-        tags: 11-8.3
-        workdir: '11'
-        platform: linux/amd64,linux/arm64
-  # drupal 10
-  drupal-10-84:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: docker/setup-qemu-action@v3
-        with:
-          platforms: amd64,arm64
-      - uses: docker/setup-buildx-action@v3
-      - uses: ./.github/actions
-        with:
-          version: ${{ env.DRUPAL10 }}
-          php_ver: '8.4'
-          tags: 10-8.4,10-8,10
-          workdir: '10'
-          platform: linux/amd64,linux/arm64
-  drupal-10-83:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: docker/setup-qemu-action@v3
-      with:
-        platforms: amd64,arm64
-    - uses: docker/setup-buildx-action@v3
-    - uses: ./.github/actions
-      with:
-        version: ${{ env.DRUPAL10 }}
-        php_ver: '8.3'
-        tags: 10-8.3
-        workdir: '10'
-        platform: linux/amd64,linux/arm64
-  drupal-10-82:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: docker/setup-qemu-action@v3
-      with:
-        platforms: amd64,arm64
-    - uses: docker/setup-buildx-action@v3
-    - uses: ./.github/actions
-      with:
-        version: ${{ env.DRUPAL10 }}
-        php_ver: '8.2'
-        tags: 10-8.2
-        workdir: '10'
-        platform: linux/amd64,linux/arm64
-  drupal-10-81:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: docker/setup-qemu-action@v3
-      with:
-        platforms: amd64,arm64
-    - uses: docker/setup-buildx-action@v3
-    - uses: ./.github/actions
-      with:
-        version: ${{ env.DRUPAL10 }}
-        php_ver: '8.1'
-        tags: 10-8.1
-        workdir: '10'
-        platform: linux/amd64,linux/arm64
-  # drupal 7
-  drupal-7-82:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: docker/setup-qemu-action@v3
-      with:
-        platforms: amd64,arm64
-    - uses: docker/setup-buildx-action@v3
-    - uses: ./.github/actions
-      with:
-        version: ${{ env.DRUPAL7 }}
-        php_ver: '8.2'
-        tags: 7-8.2,7-8,7
-        workdir: 7
-        platform: linux/amd64,linux/arm64
-  drupal-7-81:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: docker/setup-qemu-action@v3
-      with:
-        platforms: amd64,arm64
-    - uses: docker/setup-buildx-action@v3
-    - uses: ./.github/actions
-      with:
-        version: ${{ env.DRUPAL7 }}
-        php_ver: '8.1'
-        tags: 7-8.1
-        workdir: 7
-        platform: linux/amd64,linux/arm64
+          version: ${{ matrix.drupal.version }}
+          php: ${{ matrix.php }}
+          latest: ${{ matrix.drupal.key == 'drupal11' && matrix.latest_php }}
+          latest_major: ${{ matrix.latest_major }}
+          latest_php: ${{ matrix.latest_php }}
+          latest_major_php: ${{ matrix.later_major_php }}
+          workdir: ${{ matrix.drupal.workdir }}
