@@ -17,7 +17,7 @@ env:
 
 
   # keep a few lines to avoid conflicts.
-  BASE_IMAGE_STABILITY_TAG: 4.77.0
+  BASE_IMAGE_STABILITY_TAG: 4.77.1
 
 jobs:
   build-drupal11:
