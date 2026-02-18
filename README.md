@@ -24,7 +24,6 @@ Overview:
 | `10-8.4`, `10-8`, `10` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/10/Dockerfile)           | 10     | 8.4 |
 | `10-8.3` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/10/Dockerfile)                         | 10     | 8.3 |
 | `10-8.2` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/10/Dockerfile)                         | 10     | 8.2 |
-| `10-8.1` [_(Dockerfile)_](https://github.com/wodby/drupal/tree/master/10/Dockerfile)                         | 10     | 8.1 |
 
 All images built for `linux/amd64` and `linux/arm64`
 
