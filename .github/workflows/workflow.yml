@@ -12,7 +12,7 @@ on:
   pull_request:
 
 env:
-  DRUPAL11: '11.3.4'
+  DRUPAL11: '11.3.5'
   DRUPAL10: '10.6.4'
 
 jobs:
