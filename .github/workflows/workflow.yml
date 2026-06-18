@@ -12,8 +12,8 @@ on:
   pull_request:
 
 env:
-  DRUPAL11: '11.3.11'
-  DRUPAL10: '10.6.10'
+  DRUPAL11: '11.3.12'
+  DRUPAL10: '10.6.11'
 
 
   # keep a few lines to avoid conflicts.
