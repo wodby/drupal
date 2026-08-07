@@ -13,7 +13,7 @@ on:
 
 env:
   DRUPAL11: '11.4.5'
-  DRUPAL10: '10.6.14'
+  DRUPAL10: '10.6.15'
 
 jobs:
   build-drupal11:
