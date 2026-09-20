@@ -50,3 +50,13 @@ See [wodby/drupal-php](https://github.com/wodby/drupal-php) for all actions.
 ## Complete Drupal Stack
 
 See [wodby/docker4drupal](https://github.com/wodby/docker4drupal)
+
+## Building with pinned base images
+
+Build with the Makefile to use the base image digests in `base-images.mk`. Local
+builds and CI resolve the same version and variant to the same multi-platform
+image. A version without a pin fails before the build starts.
+
+When adding a supported base version or variant, add its image index digest to
+`base-images.mk`. For a custom build, override `BASE_IMAGE` with a complete
+`repository:tag@sha256:...` reference.
