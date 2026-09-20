@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "image": "wodby/drupal",
+  "versions": [
+    {
+      "version": {
+        "env": "DRUPAL11"
+      },
+      "variants": [
+        {
+          "short": [
+            "{minor}-8.5",
+            "{major}-8.5"
+          ],
+          "full": "{version}-8.5"
+        },
+        {
+          "short": [
+            "{minor}",
+            "{major}"
+          ],
+          "full": "{version}"
+        },
+        {
+          "short": [
+            "{minor}-8",
+            "{major}-8"
+          ],
+          "full": "{version}-8"
+        },
+        {
+          "short": [
+            "{minor}-8.4",
+            "{major}-8.4"
+          ],
+          "full": "{version}-8.4"
+        },
+        {
+          "short": [
+            "{minor}-8.3",
+            "{major}-8.3"
+          ],
+          "full": "{version}-8.3"
+        }
+      ]
+    },
+    {
+      "version": {
+        "env": "DRUPAL10"
+      },
+      "variants": [
+        {
+          "short": [
+            "{minor}-8.4",
+            "{major}-8.4"
+          ],
+          "full": "{version}-8.4"
+        },
+        {
+          "short": [
+            "{minor}",
+            "{major}"
+          ],
+          "full": "{version}"
+        },
+        {
+          "short": [
+            "{minor}-8",
+            "{major}-8"
+          ],
+          "full": "{version}-8"
+        },
+        {
+          "short": [
+            "{minor}-8.3",
+            "{major}-8.3"
+          ],
+          "full": "{version}-8.3"
+        },
+        {
+          "short": [
+            "{minor}-8.2",
+            "{major}-8.2"
+          ],
+          "full": "{version}-8.2"
+        }
+      ]
+    }
+  ]
+}
