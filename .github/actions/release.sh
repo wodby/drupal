@@ -39,28 +39,28 @@ if [[ "${GITHUB_REF}" == refs/heads/master || "${GITHUB_REF}" == refs/tags/* ]];
   fi
 
   if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
-    # e.g. tag 1.2.3
-    stability_tag="${GITHUB_REF##*/}"
-    # 11.2-8.4-1.2.3
-    tags=("${minor_tag}-${PHP_VER}-${stability_tag}")
+    # e.g. tag r23
+    image_revision="${GITHUB_REF##*/}"
+    # 11.2-8.4-r23
+    tags=("${minor_tag}-${PHP_VER}-${image_revision}")
     if [[ -n "${LATEST_MAJOR}" ]]; then
-      # 11-8.4-1.2.3
-      tags+=("${major_tag}-${PHP_VER}-${stability_tag}")
+      # 11-8.4-r23
+      tags+=("${major_tag}-${PHP_VER}-${image_revision}")
     fi
     if [[ -n "${LATEST_MAJOR_PHP}" ]]; then
-      # 11.2-8-1.2.3
-      tags+=("${minor_tag}-${PHP_VER%.*}-${stability_tag}")
+      # 11.2-8-r23
+      tags+=("${minor_tag}-${PHP_VER%.*}-${image_revision}")
       if [[ -n "${LATEST_MAJOR}" ]]; then
-        # 11-8-1.2.3
-        tags+=("${major_tag}-${PHP_VER%.*}-${stability_tag}")
+        # 11-8-r23
+        tags+=("${major_tag}-${PHP_VER%.*}-${image_revision}")
       fi
     fi
     if [[ -n "${LATEST_PHP}" ]]; then
-      # 11.2-1.2.3
-      tags+=("${minor_tag}-${stability_tag}")
+      # 11.2-r23
+      tags+=("${minor_tag}-${image_revision}")
       if [[ -n "${LATEST_MAJOR}" ]]; then
-        # 11-1.2.3
-        tags+=("${major_tag}-${stability_tag}")
+        # 11-r23
+        tags+=("${major_tag}-${image_revision}")
       fi      
     fi        
   else          
