@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - 4.x
 
     tags:
       - '*'
@@ -13,6 +12,7 @@ on:
   pull_request:
 
 env:
+  BASE_IMAGE_REVISION: 4.83.3
   DRUPAL11: '11.4.7'
   DRUPAL10: '10.6.17'
 
