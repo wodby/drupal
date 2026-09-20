@@ -1,4 +1,7 @@
 DRUPAL_VER ?= 10.6.17
+
+# Accept legacy build arguments during the image revision transition.
+BASE_IMAGE_REVISION ?= $(BASE_IMAGE_STABILITY_TAG)
 DRUPAL_VER_MAJOR ?= $(shell echo "${DRUPAL_VER}" | grep -oE '^[0-9]+')
 
 PHP_VER ?= 8.4
@@ -11,8 +14,8 @@ TAG ?= $(DRUPAL_VER_MAJOR)-$(PHP_VER)
 
 PLATFORM ?= linux/arm64
 
-ifneq ($(BASE_IMAGE_STABILITY_TAG),)
-    BASE_IMAGE_TAG := $(BASE_IMAGE_TAG)-$(BASE_IMAGE_STABILITY_TAG)
+ifneq ($(BASE_IMAGE_REVISION),)
+    BASE_IMAGE_TAG := $(BASE_IMAGE_TAG)-$(BASE_IMAGE_REVISION)
 endif
 
 IMAGETOOLS_TAG ?= $(TAG)
