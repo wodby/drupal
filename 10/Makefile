@@ -1,4 +1,4 @@
-DRUPAL_VER ?= 10.6.19
+DRUPAL_VER ?= 10.6.20
 
 # Accept legacy build arguments during the image revision transition.
 BASE_IMAGE_REVISION ?= $(BASE_IMAGE_STABILITY_TAG)
