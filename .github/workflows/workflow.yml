@@ -12,7 +12,7 @@ on:
   pull_request:
 
 env:
-  BASE_IMAGE_REVISION: r11
+  BASE_IMAGE_REVISION: r12
   DRUPAL11: '11.4.11'
   DRUPAL10: '10.6.20'
 
