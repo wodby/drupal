@@ -10,6 +10,11 @@ $databases['default']['default'] = [
 $settings['config_sync_directory'] = '{{ getenv "FILES_DIR" }}/config/sync_dir';
 $settings['hash_salt'] = '{{ getenv "DRUPAL_HASH_SALT" "very-bad-salt" }}';
 
+// Preserve Drupal 11 form behavior unless the application opts out.
+if (!array_key_exists('enable_html5_validation', $settings)) {
+  $settings['enable_html5_validation'] = TRUE;
+}
+
 $settings['trusted_host_patterns'] = array(
     {{ getenv "DRUPAL_TRUSTED_HOST_PATTERNS" "'\\.localhost$', '\\.local$', '\\.loc$'" }}
 );

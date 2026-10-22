@@ -48,6 +48,17 @@ All images built for `linux/amd64` and `linux/arm64`
 
 See [wodby/drupal-php](https://github.com/wodby/drupal-php) for all variables.
 
+## HTML5 form validation
+
+For Drupal 11, generated settings explicitly enable HTML5 form validation unless
+the application already sets `enable_html5_validation`. To test with browser
+validation disabled before upgrading, set `$settings['enable_html5_validation'] = FALSE;`
+in `settings.php`.
+
+Drupal still reports an upgrade warning when this setting is `TRUE`. Test custom
+forms and conditionally required fields before disabling it. See the
+[Drupal change record](https://www.drupal.org/node/3537128).
+
 ## Orchestration Actions
 
 See [wodby/drupal-php](https://github.com/wodby/drupal-php) for all actions.
