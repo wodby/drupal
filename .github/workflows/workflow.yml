@@ -14,7 +14,7 @@ on:
 env:
   BASE_IMAGE_REVISION: r18
   DRUPAL11: '11.4.12'
-  DRUPAL10: '10.6.20'
+  DRUPAL10: '10.6.21'
 
 jobs:
   build-drupal11:
