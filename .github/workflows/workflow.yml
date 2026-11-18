@@ -11,6 +11,13 @@ on:
 
   pull_request:
 
+# Runs of one event and branch or tag never overlap, so an older master run
+# cannot finish last and move floating tags back. A newer pending run of the
+# same event replaces an older one; other events never replace each other.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: false
+
 env:
   BASE_IMAGE_REVISION: r21
   DRUPAL11: '11.4.13'
@@ -46,14 +53,20 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-      - name: Push architecture image
+      - name: Resolve architecture image
+        id: arch-image
         if: github.event_name == 'push'
         env:
           DRUPAL_VER: ${{ env.DRUPAL11 }}
           PHP_VER: ${{ matrix.php }}
           ARCH: ${{ matrix.arch }}
         working-directory: '11'
-        run: make push
+        run: echo "image=$(make --no-print-directory -s image-ref)" >> "$GITHUB_OUTPUT"
+      - name: Push architecture image
+        if: github.event_name == 'push'
+        uses: wodby/images/.github/actions/arch-image-push@2da5f02ec3dffc5cb3331152e01e3c89874b0bfe
+        with:
+          image: ${{ steps.arch-image.outputs.image }}
 
   build-drupal10:
     strategy:
@@ -84,14 +97,20 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-      - name: Push architecture image
+      - name: Resolve architecture image
+        id: arch-image
         if: github.event_name == 'push'
         env:
           DRUPAL_VER: ${{ env.DRUPAL10 }}
           PHP_VER: ${{ matrix.php }}
           ARCH: ${{ matrix.arch }}
         working-directory: '10'
-        run: make push
+        run: echo "image=$(make --no-print-directory -s image-ref)" >> "$GITHUB_OUTPUT"
+      - name: Push architecture image
+        if: github.event_name == 'push'
+        uses: wodby/images/.github/actions/arch-image-push@2da5f02ec3dffc5cb3331152e01e3c89874b0bfe
+        with:
+          image: ${{ steps.arch-image.outputs.image }}
 
   push-drupal11:
     if: github.event_name == 'push'
@@ -111,6 +130,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+      - uses: wodby/images/.github/actions/arch-image-pins@2da5f02ec3dffc5cb3331152e01e3c89874b0bfe
       - uses: ./.github/actions
         with:
           version: ${{ env.DRUPAL11 }}
@@ -140,6 +160,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+      - uses: wodby/images/.github/actions/arch-image-pins@2da5f02ec3dffc5cb3331152e01e3c89874b0bfe
       - uses: ./.github/actions
         with:
           version: ${{ env.DRUPAL10 }}
