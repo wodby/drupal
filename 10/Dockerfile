@@ -26,6 +26,10 @@ RUN set -ex; \
     mkdir -p web/sites/default/files; \
     chmod 777 web/sites/default/files; \
     chown wodby:wodby web/sites/default/settings.php web/sites/default/files; \
+    # Robo 5.2.1-5.2.3 call a Symfony Console 7.4 method, so Drush crashes on start
+    # with the Console 6.4 that Drupal 10 uses. Robo 5.2.4 is expected to fix it.
+    # composer config cannot set "conflict", so add it to composer.json directly.
+    su-exec wodby php -r '$f = "composer.json"; $j = json_decode(file_get_contents($f), true); $j["conflict"]["consolidation/robo"] = ">=5.2.1 <5.2.4"; file_put_contents($f, json_encode($j, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "\n");'; \
     su-exec wodby composer require drush/drush; \
     # @todo install console, currently in conflict https://github.com/hechoendrupal/drupal-console/issues/4220
     #su-exec wodby composer require --dev drupal/console:@stable; \
