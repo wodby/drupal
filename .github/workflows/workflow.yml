@@ -19,7 +19,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  BASE_IMAGE_REVISION: r23
+  BASE_IMAGE_REVISION: r24
   DRUPAL11: '11.4.13'
   DRUPAL10: '10.6.22'
 
